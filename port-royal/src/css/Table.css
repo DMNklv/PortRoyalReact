@@ -1,0 +1,70 @@
+#tableWrapper {
+    display: flex;
+    height: 70%;
+    background-color: burlywood;
+    color: black;
+}
+
+#expeditionsWrapper {
+    width: 20%;
+    background-image: url(../assets/general/game_background.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    color: whitesmoke;
+}
+
+.deckAndCommonCards {
+    display: flex;
+    flex: 1;
+    background-image: url(../assets/general/background_harbour.png);
+    background-repeat: no-repeat, repeat;
+    background-size: cover; 
+}
+
+#deckWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 15%;
+}
+
+.deckCards {
+
+}
+
+.deck {
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all .2s;
+}
+
+.deck:hover {
+    box-shadow: 0 5px 15px rgb(27, 10, 39);
+}
+
+.deck:active {
+    box-shadow: 0 3px 12px rgb(139, 30, 217);
+}
+
+.card {
+    min-width: 102px;
+    min-height: 152px;
+    width: 127.5px;
+    height: 190px;
+}
+
+#shipsAndPersonsWrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.personsWrapper {
+    width: 100%;
+    height: 50%;
+}
+
+.shipsWrapper {
+    width: 100%;
+    height: 50%;
+}

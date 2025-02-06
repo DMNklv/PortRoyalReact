@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  /* font-size: 100%; */
+  /* vertical-align: baseline; */
+  /* background: transparent; */
+}
+
+#root {
+  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/general/469827-artwork-windmill-sailing-ship-ship-oil-painting.jpg);
+  background-repeat: no-repeat, repeat;
+  background-size: cover; 
+}

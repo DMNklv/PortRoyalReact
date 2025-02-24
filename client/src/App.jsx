@@ -3,6 +3,7 @@ import './css/App.css'
 import { PlayersTop } from './PlayersTop'
 import { Table } from './Table'
 import { PlayersBottom } from './PlayersBottom'
+import { cardsData } from './cardsData'
 
 
 
@@ -10,7 +11,10 @@ import { PlayersBottom } from './PlayersBottom'
 
 function App() {
   const [gamePhase, setGamePhase] = useState('Drawing');
-  const [remainingCardsInDeck, setRemainingCardsInDeck] = useState([]);
+  const [gameDeck, setGameDeck] = useState(cardsData);
+
+  console.log(gameDeck);
+  
 
   return (
     <>

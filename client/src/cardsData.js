@@ -1,4 +1,4 @@
-[
+const cardsData = [
   {
     id: 0,
     name: "black-2Cutlass-1Coin.png",
@@ -196,3 +196,5 @@
     cardUrl: "./assets/ships/yellow-4Cutlass-4Coin.png",
   },
 ];
+
+export { cardsData };

@@ -14,7 +14,7 @@ async function test() {
     console.log(cardsData);
 
 
-    // await fs.writeFile('cardsData.js', JSON.stringify(cardsData), function(){});
+    // await fs.writeFile('baseDeckCardsData.js', JSON.stringify(cardsData), function(){});
 }
 
 // test();

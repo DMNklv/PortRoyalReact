@@ -10,7 +10,7 @@ import { cardsData } from './cardsData'
 
 
 function App() {
-  const [gamePhase, setGamePhase] = useState('Drawing');
+  const [gamePhase, setGamePhase] = useState('Discover');
   const [gameDeck, setGameDeck] = useState(cardsData);
 
   console.log(gameDeck);

@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 15%;
+    width: 20%;
 }
 
 .deckCards {
@@ -33,6 +33,7 @@
 }
 
 .deck {
+    margin: 20% auto 50% auto;
     border-radius: 15px;
     cursor: pointer;
     transition: all .2s;
@@ -46,11 +47,24 @@
     box-shadow: 0 3px 12px rgb(139, 30, 217);
 }
 
+.discardPile {
+    margin: auto auto auto auto;
+    border: 2px dashed black;
+    border-radius: 15px;
+}
+
 .card {
     min-width: 102px;
     min-height: 152px;
     width: 127.5px;
     height: 190px;
+}
+
+.cardSideways {
+    min-height: 102px;
+    min-width: 152px;
+    height: 127.5px;
+    width: 190px;
 }
 
 #shipsAndPersonsWrapper {
@@ -67,4 +81,10 @@
 .shipsWrapper {
     width: 100%;
     height: 50%;
+}
+
+
+.cardsSegment {
+    height: 100%;
+    width: 100%;
 }

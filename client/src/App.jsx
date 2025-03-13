@@ -48,9 +48,9 @@ function App() {
   console.log(`Ordered deck`, maxPlayerBaseDeck);
   console.log(`Shuffled deck:`, gameDeck);
 
-  // function drawCard(params) {
+  function drawCard(params) {
     
-  // }
+  }
   
 
   return (

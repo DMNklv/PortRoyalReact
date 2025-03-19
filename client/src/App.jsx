@@ -35,22 +35,27 @@ function shuffleDeck(deck) {
 }
 
 //? later change to one variable for the deck with a variable for the number of players
-const maxPlayerBaseDeck = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 5); // Includes all cards
-const belowMaxPlayerBaseDeck = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 4);
+const baseDeckMaxPlayers = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 5); // Includes all cards
+const baseDeckBelowMaxPlayers = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 4);
 
-const shuffledDeck = shuffleDeck(maxPlayerBaseDeck);
+const shuffledDeck = shuffleDeck(baseDeckMaxPlayers);
 
 
 function App() {
   const [gamePhase, setGamePhase] = useState('Discover');
   const [gameDeck, setGameDeck] = useState(shuffledDeck);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-  console.log(`Ordered deck`, maxPlayerBaseDeck);
+  // console.log(`Ordered deck`, baseDeckMaxPlayers);
   console.log(`Shuffled deck:`, gameDeck);
 
-  function drawCard(params) {
-    
-  }
+  const drawCard = () => {
+    if(currentCardIndex < gameDeck.length) {
+      const card = gameDeck[currentCardIndex];
+      setCurrentCardIndex(currentCardIndex + 1);
+      console.log(card);
+    }
+  };
   
 
   return (

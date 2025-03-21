@@ -1,4 +1,4 @@
-import cardBack from './assets/general/cardback.png'
+import cardBack from '../assets/general/cardback.png'
 
 export function Deck({ drawCard }) {
 

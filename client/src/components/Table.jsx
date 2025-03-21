@@ -3,7 +3,7 @@ import { Deck } from "./Deck";
 import { Expeditions } from "./Expeditions";
 import { Persons } from "./Persons";
 import { Ships } from "./Ships";
-import './css/Table.css'
+import '../css/Table.css'
 
 export function Table({ drawCard }) {
 

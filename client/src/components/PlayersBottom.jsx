@@ -1,4 +1,4 @@
-import './css/PlayerSegments.css'
+import '../css/PlayerSegments.css'
 
 export function PlayersBottom() {
     return (

@@ -1,9 +1,10 @@
 import { useState } from 'react'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './css/App.css'
-import { PlayersTop } from './PlayersTop'
-import { Table } from './Table'
-import { PlayersBottom } from './PlayersBottom'
-import { cardsData } from './cardsData'
+import { PlayersTop } from './components/PlayersTop'
+import { Table } from './components/Table'
+import { PlayersBottom } from './components/PlayersBottom'
+import { cardsData } from './data/cardsData'
 
 
 function buildDeck(cards, deckComposition, playerCount) {

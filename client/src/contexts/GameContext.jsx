@@ -1,13 +1,19 @@
-import React, { createContext, useState, useContext, useCallback } from "react";
+import React, { createContext, useState, useCallback } from "react";
+import PropTypes from 'prop-types';
 import { cardsData } from "../data/cardsData";
 
-const GameContext = createContext();
+export const GameContext = createContext(null);
 
-export function useGameContext() {
-  return useContext(GameContext);
-}
+// export function useGameContext() {
+//   return useContext(GameContext);
+// }
 
-export function GameProvider({ children }) {
+export default function GameProvider({ children }) {
+
+  GameProvider.propTypes = {
+   children: PropTypes.node
+  };
+  
   const [deck, setDeck] = useState([]);
   const [harbor, setHarbor] = useState([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
@@ -64,10 +70,48 @@ export function GameProvider({ children }) {
       const card = deck[currentCardIndex];
       setHarbor((prev) => [...prev, card]);
       setCurrentCardIndex((prev) => prev + 1);
+      console.log(card);
       return card;
     }
     return null;
   }, [currentCardIndex, deck]);
 
-  const tradeOrHireCard = useCallback((cardId) => {}, []);
+  const tradeOrHireCard = useCallback((cardId) => {
+    const cardIndex = harbor.findIndex(card => card.id === cardId);
+    if (cardIndex >= 0) {
+      const card = harbor[cardIndex];
+
+      if (playerCoins >= card.cost) {
+        const newHarbor = [...harbor];
+        newHarbor.splice(cardIndex, 1); // Remove the card from the harbor
+        setHarbor(newHarbor);
+
+        setPlayerPersonalDisplay(prev => [...prev, card]); // Add the card to the player's personal display
+        setPlayerCoins(prev => prev - card.cost); // Deduct the cost from the player's coins
+      }
+    }
+  }, [harbor, playerCoins]);
+
+  const endTurn = useCallback(() => {
+    setHarbor([]);
+  }, []);
+
+  const gameState = {
+    deck,
+    harbor,
+    playerPersonalDisplay,
+    playerCoins,
+    turn,
+    cardsRemaining: deck.length - currentCardIndex,
+    startGame,
+    drawToHarbor,
+    tradeOrHireCard,
+    endTurn,
+  };
+
+  return (
+    <GameContext.Provider value={gameState}>
+      {children}
+    </GameContext.Provider>
+  )
 }

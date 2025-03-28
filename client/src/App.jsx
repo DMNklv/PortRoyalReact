@@ -1,71 +1,94 @@
-import { useState } from 'react'
+import React from 'react';
+import { useState, createContext } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './css/App.css'
-import { PlayersTop } from './components/PlayersTop'
-import { Table } from './components/Table'
-import { PlayersBottom } from './components/PlayersBottom'
-import { cardsData } from './data/cardsData'
+import AuthPage from './components/AuthPage';
+import LobbyPage from './components/LobbyPage';
+import GamePage from './components/GamePage';
 
 
-function buildDeck(cards, deckComposition, playerCount) {
-  const deck = [];
+// export const AuthContext = createContext(null);
+
+// import { PlayersTop } from './components/PlayersTop'
+// import { Table } from './components/Table'
+// import { PlayersBottom } from './components/PlayersBottom'
+// import { cardsData } from './data/cardsData'
+
+
+// function buildDeck(cards, deckComposition, playerCount) {
+//   const deck = [];
   
-  deckComposition.forEach(item => {
-    // Skip cards with player count requirements that aren't met
-    if (item.minPlayers && playerCount < item.minPlayers) {
-      return;
-    }
+//   deckComposition.forEach(item => {
+//     // Skip cards with player count requirements that aren't met
+//     if (item.minPlayers && playerCount < item.minPlayers) {
+//       return;
+//     }
     
-    const card = cards.find(c => c.id === item.cardId);
+//     const card = cards.find(c => c.id === item.cardId);
     
-    for (let i = 0; i < item.quantity; i++) {
-      deck.push({...card, instanceId: `${card.id}_${i}`});
-    }
-  });
+//     for (let i = 0; i < item.quantity; i++) {
+//       deck.push({...card, instanceId: `${card.id}_${i}`});
+//     }
+//   });
   
-  return deck;
-}
+//   return deck;
+// }
 
-function shuffleDeck(deck) {
-  const shuffledDeck = [...deck];
-  for (let i = shuffledDeck.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
-  }
-  return shuffledDeck;
-}
+// function shuffleDeck(deck) {
+//   const shuffledDeck = [...deck];
+//   for (let i = shuffledDeck.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
+//   }
+//   return shuffledDeck;
+// }
 
-//? later change to one variable for the deck with a variable for the number of players
-const baseDeckMaxPlayers = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 5); // Includes all cards
-const baseDeckBelowMaxPlayers = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 4);
+// //? later change to one variable for the deck with a variable for the number of players
+// const baseDeckMaxPlayers = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 5); // Includes all cards
+// const baseDeckBelowMaxPlayers = buildDeck(cardsData.cards.baseGameCards, cardsData.baseDeckComposition, 4);
 
-const shuffledDeck = shuffleDeck(baseDeckMaxPlayers);
+// const shuffledDeck = shuffleDeck(baseDeckMaxPlayers);
 
+
+// function App() {
+//   const [gamePhase, setGamePhase] = useState('Discover');
+//   const [gameDeck, setGameDeck] = useState(shuffledDeck);
+//   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+
+//   // console.log(`Ordered deck`, baseDeckMaxPlayers);
+//   console.log(`Shuffled deck:`, gameDeck);
+
+//   const drawCard = () => {
+//     if(currentCardIndex < gameDeck.length) {
+//       const card = gameDeck[currentCardIndex];
+//       setCurrentCardIndex(currentCardIndex + 1);
+//       console.log(card);
+//     }
+//   };
+  
+
+//   return (
+//     <>
+//       <PlayersTop />
+//       <Table drawCard={drawCard}/>
+//       <PlayersBottom />
+//     </>
+//   )
+// }
 
 function App() {
-  const [gamePhase, setGamePhase] = useState('Discover');
-  const [gameDeck, setGameDeck] = useState(shuffledDeck);
-  const [currentCardIndex, setCurrentCardIndex] = useState(0);
-
-  // console.log(`Ordered deck`, baseDeckMaxPlayers);
-  console.log(`Shuffled deck:`, gameDeck);
-
-  const drawCard = () => {
-    if(currentCardIndex < gameDeck.length) {
-      const card = gameDeck[currentCardIndex];
-      setCurrentCardIndex(currentCardIndex + 1);
-      console.log(card);
-    }
-  };
-  
-
   return (
-    <>
-      <PlayersTop />
-      <Table drawCard={drawCard}/>
-      <PlayersBottom />
-    </>
+    // <AuthContext.Provider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/game" />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/lobby" element={<LobbyPage />} />
+          <Route path="/game" element={<GamePage />} />
+        </Routes>
+      </BrowserRouter>
+    // </AuthContext.Provider>
   )
 }
 
-export default App
+export default App;

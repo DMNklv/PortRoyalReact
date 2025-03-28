@@ -48,7 +48,7 @@ async function createCardsAPI() {
     // await fs.writeFile('cardsData.js', JSON.stringify(cardsData), function(){});
 }
 
-createCardsAPI();
+// createCardsAPI();
 
 // export const allCards = [
 //     {}

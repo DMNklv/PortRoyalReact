@@ -1,11 +1,11 @@
 import React, { useEffect, useContext, useCallback } from "react";
-import { GameProvider, GameContext } from "../contexts/GameContext";
+// import { GameProvider, GameContext } from "../contexts/GameContext";
 import { Table } from "./Table";
 import { PlayersTop } from "./PlayersTop";
 import { PlayersBottom } from "./PlayersBottom";
 
 export default function GamePage() {
-    const { drawToHarbor } = useContext(GameContext);
+    // const { drawToHarbor } = useContext(GameContext);
 //   const drawCard = useCallback(() => {
 //     const { deck, currentCardIndex, setCurrentCardIndex } = useContext(GameContext);
 
@@ -17,10 +17,12 @@ export default function GamePage() {
 //   }, []);
 
   return (
-    <GameProvider>
+    // <GameProvider>
+    <>
       <PlayersTop />
-      <Table drawCard={drawToHarbor} />
+      <Table  />
       <PlayersBottom />
-    </GameProvider>
+    </>
+    // </GameProvider>
   );
 }

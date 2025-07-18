@@ -41,8 +41,8 @@ const playersSlice = createSlice({
     initialState,
     reducers: {
         addPlayer: (state, action) => {
-            const { name, isBot = false } = state.payload;
-            if (state.players.length < state.numberOfPlayers) {
+            const { name, isBot = false } = action.payload;
+            if (state.players.length <= state.numberOfPlayers) {
                 const newPlayer = createInitialPlayer(`player_${state.players.length + 1}`, name, isBot);
                 state.players.push(newPlayer);
                 if (state.players.length === 1) {

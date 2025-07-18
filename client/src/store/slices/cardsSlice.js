@@ -29,7 +29,35 @@ const cardsSlice = createSlice({
                 state.lastPlayedCard = null; // Clear last played card if it was deactivated
             }
         },
+        
+        addCardEffect: (state, action) => {
+            const effect = action.payload;
+            state.cardEffects.push({
+                ...effect,
+                id: `effect_${Math.random().toString(36).substring(2, 12)}`, // Generate a unique ID for the effect
+                timestamp: Date.now()
+            });
+        },
 
+        removeCardEffect: (state, action) => {
+            const effectId = action.payload;
+            state.cardEffects = state.cardEffects.filter(effect => effect.id !== effectId);
+        },
+
+        clearCardEffects: (state) => {
+            state.cardEffects = [];
+        }
         
     }
-})
+});
+
+export const {
+    loadCards,
+    activateCard,
+    deactivateCard,
+    addCardEffect,
+    removeCardEffect,
+    clearCardEffects
+} = cardsSlice.actions;
+
+export default cardsSlice.reducer;

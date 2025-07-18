@@ -33,23 +33,50 @@ const initialState = {
     error: null
 };
 
-export const startGame = createAsyncThunk(
-    'game/startGame',
-    async (gameSettings) => {
-        const deck = buildDeck(initialState.gameSettings.justOneMoreContract ? cardsData.cards.justOneMoreContractCards : cardsData.cards.baseGameCards, cardsData.baseDeckComposition, initialState.gameSettings.numberOfPlayers);
-        const shuffledDeck = shuffleDeck(deck);
+// export const startGame = createAsyncThunk(
+//     'game/startGame',
+//     async (gameSettings) => {
+//         const deck = buildDeck(initialState.gameSettings.justOneMoreContract ? cardsData.cards.justOneMoreContractCards : cardsData.cards.baseGameCards, cardsData.baseDeckComposition, initialState.gameSettings.numberOfPlayers);
+//         const shuffledDeck = shuffleDeck(deck);
         
-        return {
-            deck: shuffledDeck,
-            gameSettings
-        };
-    }
-);
+//         return {
+//             deck: shuffledDeck,
+//             gameSettings
+//         };
+//     }
+// );
 
 const gameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
+        startGame: (state, action) => {
+            const gameSettings = action.payload;
+            
+            console.log('🎮 Starting game with settings:', gameSettings);
+            
+            try {
+                // Build deck using your function
+                const deck = shuffleDeck(buildDeck(
+                    initialState.gameSettings.justOneMoreContract ? cardsData.cards.justOneMoreContractCards : cardsData.cards.baseGameCards, cardsData.baseDeckComposition, initialState.gameSettings.numberOfPlayers
+                ));
+
+                console.log('🃏 Deck built and shuffled:', deck);
+                
+                state.deck = deck;
+                state.gameSettings = { ...state.gameSettings, ...gameSettings };
+                state.gameStarted = true;
+                state.phase = GAME_PHASES.DISCOVERY;
+                state.gameId = `game_${Date.now()}`;
+                state.error = null;
+                
+                console.log('✅ Game started successfully!');
+            } catch (error) {
+                console.error('❌ Error starting game:', error);
+                state.error = error.message;
+            }
+        },
+
         setGamePhase: (state, action) => {
             state.phase = action.payload;
         },
@@ -102,30 +129,33 @@ const gameSlice = createSlice({
             return { ...initialState };
         },
 
-        extraReducers: (builder) => {
-            builder
-                .addCase(startGame.pending, (state) => {
-                    state.isLoading = true;
-                    state.error = null;
-                })
-                .addCase(startGame.fulfilled, (state, action) => {
-                    state.isLoading = false;
-                    state.deck = action.payload.deck;
-                    state.gameSettings = { ...state.gameSettings, ...action.payload.gameSettings };
-                    state.gameStarted = true;
-                    state.phase = GAME_PHASES.DISCOVERY;
-                    state.gameId = `game_${Date.now()}`;
-                })
-                .addCase(startGame.rejected, (state, action) => {
-                    state.isLoading = false;
-                    state.error = action.error.message;
-                });
-        }
+        // extraReducers: (builder) => {
+        //     builder
+        //         .addCase(startGame.pending, (state) => {
+        //             state.isLoading = true;
+        //             state.error = null;
+        //         })
+        //         .addCase(startGame.fulfilled, (state, action) => {
+        //             state.isLoading = false;
+        //             state.deck = action.payload.deck;
+        //             state.gameSettings = { ...state.gameSettings, ...action.payload.gameSettings };
+        //             state.gameStarted = true;
+        //             state.phase = GAME_PHASES.DISCOVERY;
+        //             state.gameId = `game_${Date.now()}`;
+        //         })
+        //         .addCase(startGame.rejected, (state, action) => {
+        //             state.isLoading = false;
+        //             state.error = action.error.message;
+        //             console.log('smth went wrong while starting the game:', action.error.message);
+        //             console.log(cardsData.cards.baseGameCards)
+        //         });
+        // }
 
     }
 });
 
 export const {
+    startGame,
     setGamePhase,
     nextPlayer,
     drawCardToHarbor,

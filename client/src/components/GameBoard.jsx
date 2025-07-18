@@ -3,16 +3,16 @@ import { Deck } from "./Deck";
 import { Expeditions } from "./Expeditions";
 import { Persons } from "./Persons";
 import { Ships } from "./Ships";
-import '../css/Table.css'
+import '../css/Gameboard.css'
 
-export function Table({ drawCard }) {
+export function GameBoard() {
 
     return (
         <>
-            <div id="tableWrapper">
+            <div id="gameBoardWrapper">
                 <Expeditions />
                 <div className="deckAndCommonCards">
-                    <Deck drawCard={drawCard}/>
+                    <Deck />
                     <div id="shipsAndPersonsWrapper">
                         <Ships />
                         <Persons />

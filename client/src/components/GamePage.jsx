@@ -9,27 +9,22 @@ import { addPlayer } from '../store/slices/playersSlice';
 export default function GamePage() {
   const dispatch = useDispatch();
   const gameState = useSelector(state => state.game);
-  const players = useSelector(state => state.players.players);
-  
-  const [gameSettings, setGameSettings] = useState({
-    maxPlayers: 4,
-    victoryPoints: 12,
-    expeditionMode: false
-  });
+  const playersState = useSelector(state => state.players);
 
-  const handleStartGame = async () => {
+  const [numberOfPlayers, setNumberOfPlayers] = useState();
+
+  const handleStartGame = () => {
     console.log('🚀 Starting new game...');
     
     // Make sure we have players first
-    if (players.length === 0) {
+    if (playersState.players.length === 0) {
       console.log('👥 Adding default players...');
       dispatch(addPlayer({ name: 'Player 1' }));
       dispatch(addPlayer({ name: 'Player 2' }));
       dispatch(addPlayer({ name: 'Bot 1', isBot: true }));
     }
     
-    // Dispatch the async thunk
-    dispatch(startGame(gameSettings));
+    dispatch(startGame(gameState.gameSettings));
   };
 
   return (
@@ -39,17 +34,18 @@ export default function GamePage() {
       <GameBoard  />
       <div className="settings">
         <label>
-          Max Players:
+          Number of players:
           <select 
-            value={gameSettings.maxPlayers}
+            value={gameState.gameSettings.numberOfPlayers}
             onChange={(e) => setGameSettings({
-              ...gameSettings,
-              maxPlayers: parseInt(e.target.value)
+              ...gameState.gameSettings,
+              numberOfPlayers: parseInt(e.target.value)
             })}
           >
             <option value={2}>2 Players</option>
             <option value={3}>3 Players</option>
             <option value={4}>4 Players</option>
+            <option value={5}>5 Players</option>
           </select>
         </label>
         
@@ -59,30 +55,30 @@ export default function GamePage() {
             type="number"
             min="8"
             max="20"
-            value={gameSettings.victoryPoints}
+            value={gameState.gameSettings.victoryPoints}
             onChange={(e) => setGameSettings({
-              ...gameSettings,
+              ...gameState.gameSettings,
               victoryPoints: parseInt(e.target.value)
             })}
           />
         </label>
         
-        <label>
+        {/* <label>
           <input
             type="checkbox"
-            checked={gameSettings.expeditionMode}
+            checked={gameState.gameSettings.expeditionMode}
             onChange={(e) => setGameSettings({
-              ...gameSettings,
+              ...gameState.gameSettings,
               expeditionMode: e.target.checked
             })}
           />
           Expedition Mode
-        </label>
+        </label> */}
       </div>
       
       <div className="players">
-        <h3>Players ({players.length})</h3>
-        {players.map(player => (
+        <h3>Players ({playersState.players.length})</h3>
+        {playersState.players.map(player => (
           <div key={player.id}>
             {player.name} {player.isBot && '(Bot)'}
           </div>

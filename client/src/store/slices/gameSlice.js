@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { buildDeck, shuffleDeck } from '../../utils/deckBuilder';
 import cardsData from '../../data/cardsData';
 
-const GAME_PHASES = {
+export const GAME_PHASES = {
     SETUP: 'setup',
     DISCOVERY: 'discovery',
     TRADE_HIRE: 'trade_hire',
@@ -15,7 +15,7 @@ const initialState = {
     phase: GAME_PHASES.SETUP,
     currentPlayerIndex: 0,
     round: 1,
-    harbor: [],
+    harbor: {ships: [], persons: []},
     deck: [],
     discardPile: [],
     expeditionCards: [],
@@ -93,11 +93,35 @@ const gameSlice = createSlice({
         drawCardToHarbor: (state) => {
             if (state.deck.length > 0) {
                 const card = state.deck.shift();
-                state.harbor.push({
-                    ...card,
-                    instanceId: `harbor_${card.id}_${state.harbor.length}`, // Ensure unique instance ID
-                    position: state.harbor.length
-                });
+                console.log(`Drawn card: ${card.name} (ID: ${card.id})`);
+                
+                switch (card.type) {
+                    case 'ship':
+                        state.harbor.ships.push({
+                            ...card,
+                            instanceId: `ships_harbor_${card.id}_${state.harbor.ships.length}`, // Ensure unique instance ID
+                            position: state.harbor.ships.length
+                        });
+                        break;
+                    case 'person':
+                        state.harbor.persons.push({
+                            ...card,
+                            instanceId: `persons_harbor_${card.id}_${state.harbor.persons.length}`, // Ensure unique instance ID
+                            position: state.harbor.persons.length
+                        });
+                        break;
+                    case 'expedition':
+                        state.expeditionCards.push({
+                            ...card,
+                            instanceId: `expedition_board_${card.id}_${state.expeditionCards.length}`, // Ensure unique instance ID
+                            position: state.expeditionCards.length
+                        });
+                        break;
+                    case 'taxIncrease':
+                        console.log(`Tax Increase card drawn: ${card.name}`);
+                        // Handle tax increase logic here if needed
+                        break;
+                }
             }
         },
 

@@ -85,6 +85,20 @@
 
 
 .cardsSegment {
+    display: flex;
+    align-items: center;
     height: 100%;
     width: 100%;
+}
+
+.cardDetails {
+    display: none;
+}
+
+.card img {
+    height: 100%;
+    width: 100%;
+}
+
+.shipCard {
 }

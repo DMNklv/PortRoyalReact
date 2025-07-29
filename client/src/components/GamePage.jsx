@@ -86,7 +86,7 @@ export default function GamePage() {
       </div>
       
       <button 
-        onClick={handleStartGame}
+        onClick={() => handleStartGame()}
         disabled={gameState.isLoading}
         className="start-game-btn"
       >

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { buildDeck, shuffleDeck } from '../../utils/deckBuilder';
-import cardsData from '../../data/cardsData';
+import cardsData1 from '../../data/cardsData1';
 
 export const GAME_PHASES = {
     SETUP: 'setup',
@@ -57,7 +57,7 @@ const gameSlice = createSlice({
             
             try {
                 const deck = shuffleDeck(buildDeck(
-                    gameSettings.justOneMoreContract ? cardsData.cards.justOneMoreContractCards : cardsData.cards.baseGameCards, cardsData.baseDeckComposition, gameSettings.numberOfPlayers
+                    gameSettings.justOneMoreContract ? cardsData1.cards.justOneMoreContractCards : cardsData1.cards.baseGameCards, cardsData1.baseDeckComposition, gameSettings.numberOfPlayers
                 ));
 
                 console.log('🃏 Deck built and shuffled:', deck);

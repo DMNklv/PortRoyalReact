@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useState, useRef } from 'react';
 
 // const images = import.meta.glob('../assets/ships/*.png', { eager: true });
 
@@ -15,22 +16,45 @@ export function Ships() {
 
     const gameState = useSelector(state => state.game);
     const shipsInHarbor = gameState.harbor.ships || [];
+
     return (
-        <>
-            <div className="shipsWrapper">
-                {/* <h2>Ship cards segment</h2> */}
-                <div className="cardsSegment">
-                    {shipsInHarbor.map((ship, index) => (
-                        <div key={ship.instanceId} className="card shipCard">
-                            <img src={ship.cardUrl} alt={ship.name} />
-                            <div className="cardDetails">
-                                <h3>{ship.name}</h3>
-                                <p>{ship.desc}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+        <div className="shipsWrapper">
+            <div className="cardsSegment">
+                {shipsInHarbor.map((ship, index) => (
+                    <ShipCard key={ship.instanceId} ship={ship} />
+                ))}
             </div>
-        </>
+        </div>
+    );
+}
+
+function ShipCard({ ship }) {
+    const [showDetails, setShowDetails] = useState(false);
+    const timeRef = useRef(null);
+
+    const handleMouseEnter = () => {
+        timeRef.current = setTimeout(() => setShowDetails(true), 500);
+    }
+
+    const handleMouseLeave = () => {
+        clearTimeout(timeRef.current);
+        setShowDetails(false);
+    }
+
+    return (
+        <div
+            className="card shipCard"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <img src={ship.cardUrl} alt={ship.name} />
+            <div
+                className={`cardDetails${showDetails ? ' show' : ''}`}
+            >
+                {/* <h3>{ship.name}</h3> */}
+                <p>{ship.desc}</p>
+            </div>
+        </div>
     )
+
 }

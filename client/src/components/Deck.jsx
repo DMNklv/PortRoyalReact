@@ -10,13 +10,13 @@ export function Deck() {
     const gameState = useSelector(state => state.game);
     const playersState = useSelector(state => state.players);
 
-    useEffect(() => {
-        console.log('Harbor state updated:', gameState.harbor);
-    }, [gameState.harbor]);
+    // useEffect(() => {
+    //     console.log('Harbor state updated:', gameState.harbor);
+    // }, [gameState.harbor]);
 
-    useEffect(() => {
-        console.log('Expedition cards state updated:', gameState.expeditionCards);
-    }, [gameState.expeditionCards]);
+    // useEffect(() => {
+    //     console.log('Expedition cards state updated:', gameState.expeditionCards);
+    // }, [gameState.expeditionCards]);
 
     // useEffect(() => {
     //     console.log('Deck state updated:', gameState.deck);

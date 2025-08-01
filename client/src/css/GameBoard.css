@@ -171,6 +171,58 @@
     box-shadow: 0 0 10px 2px rgb(228, 188, 255);
 }
 
+.taxIncreaseOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.taxIncreaseCard {
+    background: rgb(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    width: 250px;
+    /* height: 450px; */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #0008;
+    text-align: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+
+    img {
+        -webkit-user-drag: none;
+    }
+}
+
+.continueAfterTaxBtn {
+    position: fixed;
+    right: 350px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+
+    &:hover {
+        background-color: #45a049; /* Darker green */
+        box-shadow: 0 0 10px rgba(42, 82, 42, 0.9);
+    }
+    transition: all 0.1s ease;
+}
+
 /* .personCard:hover .cardDetails, .shipCard:hover .cardDetails {
     display: block;
     backdrop-filter: sepia(0.01);

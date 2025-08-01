@@ -19,6 +19,7 @@ const initialState = {
     deck: [],
     discardPile: [],
     expeditionCards: [],
+    taxIncreaseCard: null,
     gameSettings: {
         numberOfPlayers: 5,
         victoryPointsToWin: 12,
@@ -99,27 +100,30 @@ const gameSlice = createSlice({
                     case 'ship':
                         state.harbor.ships.push({
                             ...card,
-                            instanceId: `ships_harbor_${card.id}_${state.harbor.ships.length}`, // Ensure unique instance ID
+                            instanceId: `ships_harbor_${card.id}_${state.harbor.ships.length}`,
                             position: state.harbor.ships.length
                         });
                         break;
                     case 'person':
                         state.harbor.persons.push({
                             ...card,
-                            instanceId: `persons_harbor_${card.id}_${state.harbor.persons.length}`, // Ensure unique instance ID
+                            instanceId: `persons_harbor_${card.id}_${state.harbor.persons.length}`,
                             position: state.harbor.persons.length
                         });
                         break;
                     case 'expedition':
                         state.expeditionCards.push({
                             ...card,
-                            instanceId: `expedition_board_${card.id}_${state.expeditionCards.length}`, // Ensure unique instance ID
+                            instanceId: `expedition_board_${card.id}_${state.expeditionCards.length}`,
                             position: state.expeditionCards.length
                         });
                         break;
                     case 'taxIncrease':
-                        console.log(`Tax Increase card drawn: ${card.name}`);
-                        // Handle tax increase logic here if needed
+                        console.log(`\x1B[43;30;4mTax Increase\x1B[m card drawn: ${card.name}`);
+                        state.taxIncreaseCard = {
+                            ...card,
+                            instanceId: `taxIncrease_${card.id}_${Date.now()}`
+                        };
                         break;
                 }
             }
@@ -132,6 +136,13 @@ const gameSlice = createSlice({
             state.harbor.forEach((card, index) => {
                 card.position = index; // Update positions after removal
             });
+        },
+
+        clearTaxIncreaseCard: (state) => {
+            if (state.taxIncreaseCard) {
+                state.discardPile.push(state.taxIncreaseCard);
+                state.taxIncreaseCard = null;
+            }
         },
 
         //discardCard: ...
@@ -183,6 +194,7 @@ export const {
     nextPlayer,
     drawCardToHarbor,
     removeCardFromHarbor,
+    clearTaxIncreaseCard,
     reshuffleDeck,
     setWinner,
     resetGame

@@ -50,7 +50,6 @@
 
 .discardPile {
     margin: auto auto auto auto;
-    border: 2px dashed black;
     border-radius: 15px;
 }
 
@@ -65,11 +64,17 @@
     -webkit-user-drag: none;
 }
 
-.cardSideways {
+.discardPileOutline {
     min-height: 102px;
     min-width: 152px;
     height: 127.5px;
     width: 190px;
+    border: 2px dashed black;
+
+}
+
+.cardSideways {
+    transform: rotate(-90deg);
 }
 
 #shipsAndPersonsWrapper {
@@ -197,6 +202,11 @@
         -webkit-user-drag: none;
     }
 }
+
+.taxIncreaseImg {
+    margin-bottom: 2rem;
+}
+
 
 .continueAfterTaxBtn {
     position: fixed;

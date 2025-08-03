@@ -40,7 +40,12 @@ export function Deck() {
     return (
         <>
             <div id="deckWrapper">
-                <div className='discardPile cardSideways'></div>
+                {gameState.discardPile.length == 0 ? (
+                    <div className='discardPile discardPileOutline'>
+                    </div>
+                ) : (
+                    <img src={cardBack} alt="" className="discardPile cardSideways card" />
+                )}
                 <div className="deckCards">
                     <img src={cardBack} alt="" className="deck card" onClick={() => {handleDrawToHarbor()}} />
                 </div>

@@ -8,7 +8,7 @@ const cardsData = {
           cost: 5,
           victoryPoints: 1,
           desc: "Whenever it is your time to take a card/cards during Phase 2: Trade & Hire and there are currently 5 or more cards in the harbor display you immediately gain 2 coins.",
-          cardUrl: "public/persons/admiral-1VP-5Coin.png",
+          cardUrl: "/persons/admiral-1VP-5Coin.png",
         },
         {
           id: 1,
@@ -17,7 +17,7 @@ const cardsData = {
           cost: 7,
           victoryPoints: 2,
           desc: "Whenever it is your time to take a card/cards during Phase 2: Trade & Hire and there are currently 5 or more cards in the harbor display you immediately gain 2 coins.",
-          cardUrl: "public/persons/admiral-2VP-7coin.png",
+          cardUrl: "/persons/admiral-2VP-7coin.png",
         },
         {
           id: 2,
@@ -26,7 +26,7 @@ const cardsData = {
           cost: 9,
           victoryPoints: 3,
           desc: "Whenever it is your time to take a card/cards during Phase 2: Trade & Hire and there are currently 5 or more cards in the harbor display you immediately gain 2 coins.",
-          cardUrl: "public/persons/admiral-3VP-9Coin.png",
+          cardUrl: "/persons/admiral-3VP-9Coin.png",
         },
         {
           id: 3,
@@ -35,7 +35,7 @@ const cardsData = {
           cost: 4,
           victoryPoints: 1,
           desc: "To be able to claim an Expedition you must be able to discard the required card types shown on it from your personal display. The ability banner is a little darker to signify this.",
-          cardUrl: "public/persons/captain-1VP-4Coin.png",
+          cardUrl: "/persons/captain-1VP-4Coin.png",
         },
         {
           id: 4,
@@ -44,7 +44,7 @@ const cardsData = {
           cost: 8,
           victoryPoints: 0,
           desc: "Whenever it is your time to take a card/cards during Phase 2: Trade & Hire you may take 1 more card from the harbor display. If you are not the active player, you have to compensate the active player with 1 coin for each card taken.",
-          cardUrl: "public/persons/governor-0VP-8Coin.png",
+          cardUrl: "/persons/governor-0VP-8Coin.png",
         },
         {
           id: 5,
@@ -53,7 +53,7 @@ const cardsData = {
           cost: 6,
           victoryPoints: 1,
           desc: "The Jack of all Trades is a Joker type of card and can be discarded instead of a Priest, Settler or Captain to claim an Expedition.",
-          cardUrl: "public/persons/jackOfAllTrades-1VP-6Coin.png",
+          cardUrl: "/persons/jackOfAllTrades-1VP-6Coin.png",
         },
         {
           id: 6,
@@ -62,7 +62,7 @@ const cardsData = {
           cost: 5,
           victoryPoints: 1,
           desc: "If you are currently not the active player and during a Phase 2: Trade & Hire it is your turn to take a card - and there are no cards left in the harbor display, immediately gain 1 coin. Should a player forfeit his turn during a Phase 1: Discover and the 2nd Phase will be skipped, all players with a Jester gain 1 coin.",
-          cardUrl: "public/persons/jester-1VP-5Coin.png",
+          cardUrl: "/persons/jester-1VP-5Coin.png",
         },
         {
           id: 7,
@@ -71,7 +71,7 @@ const cardsData = {
           cost: 7,
           victoryPoints: 2,
           desc: "If you are currently not the active player and during a Phase 2: Trade & Hire it is your turn to take a card - and there are no cards left in the harbor display, immediately gain 1 coin. Should a player forfeit his turn during a Phase 1: Discover and the 2nd Phase will be skipped, all players with a Jester gain 1 coin.",
-          cardUrl: "public/persons/jester-2VP-7Coin.png",
+          cardUrl: "/persons/jester-2VP-7Coin.png",
         },
         {
           id: 8,
@@ -80,7 +80,7 @@ const cardsData = {
           cost: 9,
           victoryPoints: 3,
           desc: "If you are currently not the active player and during a Phase 2: Trade & Hire it is your turn to take a card - and there are no cards left in the harbor display, immediately gain 1 coin. Should a player forfeit his turn during a Phase 1: Discover and the 2nd Phase will be skipped, all players with a Jester gain 1 coin.",
-          cardUrl: "public/persons/jester-3VP-9Coin.png",
+          cardUrl: "/persons/jester-3VP-9Coin.png",
         },
         {
           id: 9,
@@ -89,7 +89,7 @@ const cardsData = {
           cost: 7,
           victoryPoints: 2,
           desc: "The hire cost of a Person is discounted by 1 coin. The cost cannot be discounted to less than 0.",
-          cardUrl: "public/persons/mademoiselle-2VP-7Coin.png",
+          cardUrl: "/persons/mademoiselle-2VP-7Coin.png",
         },
         {
           id: 10,
@@ -98,7 +98,7 @@ const cardsData = {
           cost: 9,
           victoryPoints: 3,
           desc: "The hire cost of a Person is discounted by 1 coin. The cost cannot be discounted to less than 0.",
-          cardUrl: "public/persons/mademoiselle-3VP-9Coin.png",
+          cardUrl: "/persons/mademoiselle-3VP-9Coin.png",
         },
         {
           id: 11,
@@ -108,7 +108,7 @@ const cardsData = {
           victoryPoints: 1,
           swords: 2,
           desc: "With the depicted Swords, Ships can be repelled. (see Phase 1: Discover)",
-          cardUrl: "public/persons/pirate-1VP-5Coin.png",
+          cardUrl: "/persons/pirate-1VP-5Coin.png",
         },
         {
           id: 12,
@@ -118,7 +118,7 @@ const cardsData = {
           victoryPoints: 2,
           swords: 2,
           desc: "With the depicted Swords, Ships can be repelled. (see Phase 1: Discover)",
-          cardUrl: "public/persons/pirate-2VP-7Coin.png",
+          cardUrl: "/persons/pirate-2VP-7Coin.png",
         },
         {
           id: 13,
@@ -128,7 +128,7 @@ const cardsData = {
           victoryPoints: 3,
           swords: 2,
           desc: "With the depicted Swords, Ships can be repelled. (see Phase 1: Discover)",
-          cardUrl: "public/persons/pirate-3VP-9Coin.png",
+          cardUrl: "/persons/pirate-3VP-9Coin.png",
         },
         {
           id: 14,
@@ -137,7 +137,7 @@ const cardsData = {
           cost: 4,
           victoryPoints: 1,
           desc: "To be able to claim an Expedition you must be able to discard the required card types shown on it from your personal display. The ability banner is a little darker to signify this.",
-          cardUrl: "public/persons/priest-1VP-4Coin.png",
+          cardUrl: "/persons/priest-1VP-4Coin.png",
         },
         {
           id: 15,
@@ -147,7 +147,7 @@ const cardsData = {
           victoryPoints: 1,
           swords: 1,
           desc: "With the depicted Swords, Ships can be repelled. (see Phase 1: Discover)",
-          cardUrl: "public/persons/sailor-1VP-3Coin.png",
+          cardUrl: "/persons/sailor-1VP-3Coin.png",
         },
         {
           id: 16,
@@ -157,7 +157,7 @@ const cardsData = {
           victoryPoints: 2,
           swords: 1,
           desc: "With the depicted Swords, Ships can be repelled. (see Phase 1: Discover)",
-          cardUrl: "public/persons/sailor-2VP-5Coin.png",
+          cardUrl: "/persons/sailor-2VP-5Coin.png",
         },
         {
           id: 17,
@@ -167,7 +167,7 @@ const cardsData = {
           victoryPoints: 3,
           swords: 1,
           desc: "With the depicted Swords, Ships can be repelled. (see Phase 1: Discover)",
-          cardUrl: "public/persons/sailor-3VP-7Coin.png",
+          cardUrl: "/persons/sailor-3VP-7Coin.png",
         },
         {
           id: 18,
@@ -176,7 +176,7 @@ const cardsData = {
           cost: 4,
           victoryPoints: 1,
           desc: "To be able to claim an Expedition you must be able to discard the required card types shown on it from your personal display. The ability banner is a little darker to signify this.",
-          cardUrl: "public/persons/settler-1VP-4Coin.png",
+          cardUrl: "/persons/settler-1VP-4Coin.png",
         },
         {
           id: 19,
@@ -186,7 +186,7 @@ const cardsData = {
           victoryPoints: 1,
           shipColorBonus: "black",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-1VP-3Coin-black.png",
+          cardUrl: "/persons/trader-1VP-3Coin-black.png",
         },
         {
           id: 20,
@@ -196,7 +196,7 @@ const cardsData = {
           victoryPoints: 1,
           shipColorBonus: "blue",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-1VP-3Coin-blue.png",
+          cardUrl: "/persons/trader-1VP-3Coin-blue.png",
         },
         {
           id: 21,
@@ -206,7 +206,7 @@ const cardsData = {
           victoryPoints: 1,
           shipColorBonus: "green",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-1VP-3Coin-green.png",
+          cardUrl: "/persons/trader-1VP-3Coin-green.png",
         },
         {
           id: 22,
@@ -216,7 +216,7 @@ const cardsData = {
           victoryPoints: 1,
           shipColorBonus: "red",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-1VP-3Coin-red.png",
+          cardUrl: "/persons/trader-1VP-3Coin-red.png",
         },
         {
           id: 23,
@@ -226,7 +226,7 @@ const cardsData = {
           victoryPoints: 1,
           shipColorBonus: "yellow",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-1VP-3Coin-yellow.png",
+          cardUrl: "/persons/trader-1VP-3Coin-yellow.png",
         },
         {
           id: 24,
@@ -236,7 +236,7 @@ const cardsData = {
           victoryPoints: 2,
           shipColorBonus: "blue",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-2VP-5Coin-blue.png",
+          cardUrl: "/persons/trader-2VP-5Coin-blue.png",
         },
         {
           id: 25,
@@ -246,7 +246,7 @@ const cardsData = {
           victoryPoints: 2,
           shipColorBonus: "yellow",
           desc: "The player will gain 1 more golden coin if he has a Trader of the appropriate Ship color in his personal display.",
-          cardUrl: "public/persons/trader-2VP-5Coin-yellow.png",
+          cardUrl: "/persons/trader-2VP-5Coin-yellow.png",
         },
         {
           id: 26,
@@ -256,7 +256,7 @@ const cardsData = {
           victoryPoints: 0,
           coinBonus: 0,
           desc: "Expeditions grant the most victory points, bringing you closer to winning the game.",
-          cardUrl: "public/expeditions/expedition-4VP-2Coin-2Anchor.png",
+          cardUrl: "/expeditions/expedition-4VP-2Coin-2Anchor.png",
         },
         {
           id: 27,
@@ -266,7 +266,7 @@ const cardsData = {
           victoryPoints: 0,
           coinBonus: 0,
           desc: "Expeditions grant the most victory points, bringing you closer to winning the game.",
-          cardUrl: "public/expeditions/expedition-4VP-2Coin-2Cabin.png",
+          cardUrl: "/expeditions/expedition-4VP-2Coin-2Cabin.png",
         },
         {
           id: 28,
@@ -276,7 +276,7 @@ const cardsData = {
           victoryPoints: 0,
           coinBonus: 0,
           desc: "Expeditions grant the most victory points, bringing you closer to winning the game.",
-          cardUrl: "public/expeditions/expedition-4VP-2Coin-2Cross.png",
+          cardUrl: "/expeditions/expedition-4VP-2Coin-2Cross.png",
         },
         {
           id: 29,
@@ -287,7 +287,7 @@ const cardsData = {
           coinBonus: 0,
           desc: "Expeditions grant the most victory points, bringing you closer to winning the game.",
           cardUrl:
-            "public/expeditions/expedition-5VP-3Coin-1Anchor_1Cross_1Cabin.png",
+            "/expeditions/expedition-5VP-3Coin-1Anchor_1Cross_1Cabin.png",
           minPlayers: 5,
         },
         {
@@ -298,7 +298,7 @@ const cardsData = {
           victoryPoints: 0,
           coinBonus: 0,
           desc: "Expeditions grant the most victory points, bringing you closer to winning the game.",
-          cardUrl: "public/expeditions/expedition-6VP-3Coin-2Anchor_1Cabin.png",
+          cardUrl: "/expeditions/expedition-6VP-3Coin-2Anchor_1Cabin.png",
         },
         {
           id: 31,
@@ -308,7 +308,7 @@ const cardsData = {
           victoryPoints: 0,
           coinBonus: 0,
           desc: "Expeditions grant the most victory points, bringing you closer to winning the game.",
-          cardUrl: "public/expeditions/expedition-6VP-3Coin-2Cross_1Cabin.png",
+          cardUrl: "/expeditions/expedition-6VP-3Coin-2Cross_1Cabin.png",
         },
         {
           id: 32,
@@ -318,7 +318,7 @@ const cardsData = {
           swords: 2,
           color: "black",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/black-2Cutlass-1Coin.png",
+          cardUrl: "/ships/black-2Cutlass-1Coin.png",
         },
         {
           id: 33,
@@ -328,7 +328,7 @@ const cardsData = {
           swords: 4,
           color: "black",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/black-4Cutlass-2Coin.png",
+          cardUrl: "/ships/black-4Cutlass-2Coin.png",
         },
         {
           id: 34,
@@ -338,7 +338,7 @@ const cardsData = {
           swords: 7,
           color: "black",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/black-7Cutlass-3Coin.png",
+          cardUrl: "/ships/black-7Cutlass-3Coin.png",
         },
         {
           id: 35,
@@ -348,7 +348,7 @@ const cardsData = {
           swords: Infinity,
           color: "black",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/black-skull-3Coin.png",
+          cardUrl: "/ships/black-skull-3Coin.png",
         },
         {
           id: 36,
@@ -358,7 +358,7 @@ const cardsData = {
           swords: Infinity,
           color: "black",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/black-skull-4Coin.png",
+          cardUrl: "/ships/black-skull-4Coin.png",
         },
         {
           id: 37,
@@ -368,7 +368,7 @@ const cardsData = {
           swords: 1,
           color: "blue",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/blue-1Cutlass-1Coin.png",
+          cardUrl: "/ships/blue-1Cutlass-1Coin.png",
         },
         {
           id: 38,
@@ -378,7 +378,7 @@ const cardsData = {
           swords: 1,
           color: "blue",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/blue-1Cutlass-2Coin.png",
+          cardUrl: "/ships/blue-1Cutlass-2Coin.png",
         },
         {
           id: 39,
@@ -388,7 +388,7 @@ const cardsData = {
           swords: 2,
           color: "blue",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/blue-2Cutlass-2Coin.png",
+          cardUrl: "/ships/blue-2Cutlass-2Coin.png",
         },
         {
           id: 40,
@@ -398,7 +398,7 @@ const cardsData = {
           swords: 2,
           color: "blue",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/blue-2Cutlass-3Coin.png",
+          cardUrl: "/ships/blue-2Cutlass-3Coin.png",
         },
         {
           id: 41,
@@ -408,7 +408,7 @@ const cardsData = {
           swords: 5,
           color: "blue",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/blue-5Cutlass-3Coin.png",
+          cardUrl: "/ships/blue-5Cutlass-3Coin.png",
         },
         {
           id: 42,
@@ -418,7 +418,7 @@ const cardsData = {
           swords: 5,
           color: "blue",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/blue-5Cutlass-4Coin.png",
+          cardUrl: "/ships/blue-5Cutlass-4Coin.png",
         },
         {
           id: 43,
@@ -428,7 +428,7 @@ const cardsData = {
           swords: 1,
           color: "green",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/green-1Cutlass-1Coin.png",
+          cardUrl: "/ships/green-1Cutlass-1Coin.png",
         },
         {
           id: 44,
@@ -438,7 +438,7 @@ const cardsData = {
           swords: 1,
           color: "green",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/green-1Cutlass-2Coin.png",
+          cardUrl: "/ships/green-1Cutlass-2Coin.png",
         },
         {
           id: 45,
@@ -448,7 +448,7 @@ const cardsData = {
           swords: 3,
           color: "green",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/green-3Cutlass-2Coin.png",
+          cardUrl: "/ships/green-3Cutlass-2Coin.png",
         },
         {
           id: 46,
@@ -458,7 +458,7 @@ const cardsData = {
           swords: 3,
           color: "green",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/green-3Cutlass-3Coin.png",
+          cardUrl: "/ships/green-3Cutlass-3Coin.png",
         },
         {
           id: 47,
@@ -468,7 +468,7 @@ const cardsData = {
           swords: 5,
           color: "green",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/green-5Cutlass-3Coin.png",
+          cardUrl: "/ships/green-5Cutlass-3Coin.png",
         },
         {
           id: 48,
@@ -478,7 +478,7 @@ const cardsData = {
           swords: 5,
           color: "green",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/green-5Cutlass-4Coin.png",
+          cardUrl: "/ships/green-5Cutlass-4Coin.png",
         },
         {
           id: 49,
@@ -488,7 +488,7 @@ const cardsData = {
           swords: 1,
           color: "red",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/red-1Cutlass-1Coin.png",
+          cardUrl: "/ships/red-1Cutlass-1Coin.png",
         },
         {
           id: 50,
@@ -498,7 +498,7 @@ const cardsData = {
           swords: 3,
           color: "red",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/red-3Cutlass-2Coin.png",
+          cardUrl: "/ships/red-3Cutlass-2Coin.png",
         },
         {
           id: 51,
@@ -508,7 +508,7 @@ const cardsData = {
           swords: 6,
           color: "red",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/red-6Cutlass-3Coin.png",
+          cardUrl: "/ships/red-6Cutlass-3Coin.png",
         },
         {
           id: 52,
@@ -518,7 +518,7 @@ const cardsData = {
           swords: Infinity,
           color: "red",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/red-skull-3Coin.png",
+          cardUrl: "/ships/red-skull-3Coin.png",
         },
         {
           id: 53,
@@ -528,7 +528,7 @@ const cardsData = {
           swords: Infinity,
           color: "red",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/red-skull-4Coin.png",
+          cardUrl: "/ships/red-skull-4Coin.png",
         },
         {
           id: 54,
@@ -538,7 +538,7 @@ const cardsData = {
           swords: 1,
           color: "yellow",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/yellow-1Cutlass-1Coin.png",
+          cardUrl: "/ships/yellow-1Cutlass-1Coin.png",
         },
         {
           id: 55,
@@ -548,7 +548,7 @@ const cardsData = {
           swords: 1,
           color: "yellow",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/yellow-1Cutlass-2Coin.png",
+          cardUrl: "/ships/yellow-1Cutlass-2Coin.png",
         },
         {
           id: 56,
@@ -558,7 +558,7 @@ const cardsData = {
           swords: 2,
           color: "yellow",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/yellow-2Cutlass-2Coin.png",
+          cardUrl: "/ships/yellow-2Cutlass-2Coin.png",
         },
         {
           id: 57,
@@ -568,7 +568,7 @@ const cardsData = {
           swords: 2,
           color: "yellow",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/yellow-2Cutlass-3Coin.png",
+          cardUrl: "/ships/yellow-2Cutlass-3Coin.png",
         },
         {
           id: 58,
@@ -578,7 +578,7 @@ const cardsData = {
           swords: 4,
           color: "yellow",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/yellow-4Cutlass-3Coin.png",
+          cardUrl: "/ships/yellow-4Cutlass-3Coin.png",
         },
         {
           id: 59,
@@ -588,7 +588,7 @@ const cardsData = {
           swords: 4,
           color: "yellow",
           desc: "Ships grant coins when hired. If the active player draws a second ship of the same color to the harbor display and lacks the required number of swords shown on the card to repel it, they must forfeit their turn.",
-          cardUrl: "public/ships/yellow-4Cutlass-4Coin.png",
+          cardUrl: "/ships/yellow-4Cutlass-4Coin.png",
         },
         {
           id: 60,
@@ -596,7 +596,7 @@ const cardsData = {
           type: "taxIncrease",
           coinBonusCondition: "max swords",
           desc: "When drawn all players that currently own 12 or more golden coins lose half, rounded down. Additionally, the player/s with the most Swords gain/s 1 coin",
-          cardUrl: "public/taxIncreases/taxIncrease-MaxSwords.png",
+          cardUrl: "/taxIncreases/taxIncrease-MaxSwords.png",
         },
         {
           id: 61,
@@ -604,7 +604,7 @@ const cardsData = {
           type: "taxIncrease",
           coinBonusCondition: "min VP",
           desc: "When drawn all players that currently own 12 or more golden coins lose half, rounded down. Additionally, the player/s with the least Victory Points gain/s 1 coin",
-          cardUrl: "public/taxIncreases/taxIncrease-MinVP.png",
+          cardUrl: "/taxIncreases/taxIncrease-MinVP.png",
         },
       ],
       justOneMoreContractCards: [],

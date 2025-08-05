@@ -215,6 +215,9 @@
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 12px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 
     &:hover {
         background-color: #45a049; /* Darker green */

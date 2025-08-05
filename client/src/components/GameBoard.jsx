@@ -47,9 +47,9 @@ export function GameBoard() {
 function TaxIncreaseCard({ taxIncrease }) {
     return (
         <div className="taxIncreaseCard">
-            <img src={taxIncrease.cardUrl} alt={taxIncrease.name} />
+            <img src={taxIncrease.cardUrl} alt={taxIncrease.name} className="taxIncreaseImg" />
             <div className="cardDetails.show">
-                <p>{taxIncrease.desc}</p>
+                <p className="taxIncreaseDesc">{taxIncrease.desc}</p>
             </div>
         </div>
     )

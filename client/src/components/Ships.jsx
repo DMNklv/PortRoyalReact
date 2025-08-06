@@ -29,16 +29,16 @@ export function Ships() {
 }
 
 function ShipCard({ ship }) {
-    const [showDetails, setShowDetails] = useState(false);
+    const [showDescription, setShowDescription] = useState(false);
     const timeRef = useRef(null);
 
     const handleMouseEnter = () => {
-        timeRef.current = setTimeout(() => setShowDetails(true), 500);
+        timeRef.current = setTimeout(() => setShowDescription(true), 500);
     }
 
     const handleMouseLeave = () => {
         clearTimeout(timeRef.current);
-        setShowDetails(false);
+        setShowDescription(false);
     }
 
     return (
@@ -49,7 +49,7 @@ function ShipCard({ ship }) {
         >
             <img src={ship.cardUrl} alt={ship.name} />
             <div
-                className={`cardDetails${showDetails ? ' show' : ''}`}
+                className={`cardDescription${showDescription ? ' show' : ''}`}
             >
                 {/* <h3>{ship.name}</h3> */}
                 <p>{ship.desc}</p>

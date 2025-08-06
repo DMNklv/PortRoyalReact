@@ -21,16 +21,16 @@ export function Expeditions() {
 }
 
 function ExpeditionCard({ expedition }) {
-    const [showDetails, setShowDetails] = useState(false);
+    const [showDescription, setShowDescription] = useState(false);
     const timerRef = useRef(null);
 
     const handleMouseEnter = () => {
-        timerRef.current = setTimeout(() => setShowDetails(true), 500);
+        timerRef.current = setTimeout(() => setShowDescription(true), 500);
     };
 
     const handleMouseLeave = () => {
         clearTimeout(timerRef.current);
-        setShowDetails(false);
+        setShowDescription(false);
     };
 
     return (
@@ -40,7 +40,7 @@ function ExpeditionCard({ expedition }) {
             onMouseLeave={handleMouseLeave}
         >
             <img src={expedition.cardUrl} alt={expedition.name} />
-            <div className={`cardDetails${showDetails ? ' show' : ''}`}>
+            <div className={`cardDescription${showDescription ? ' show' : ''}`}>
                 <p>{expedition.desc}</p>
             </div>
         </div>

@@ -1,5 +1,5 @@
 import cardBack from '../assets/general/cardback.png'
-import React, { useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { drawCardToHarbor, setGamePhase } from '../store/slices/gameSlice';
 import { GAME_PHASES } from '../store/slices/gameSlice';
@@ -22,6 +22,23 @@ export function Deck() {
     //     console.log('Deck state updated:', gameState.deck);
     // }, [gameState.deck]);
 
+    const [isNoDraw, setIsNoDraw] = useState(gameState.phase !== GAME_PHASES.DISCOVERY);
+
+    // Tooltip state
+    const [deckToolTipContent, setDeckToolTipContent] = useState('');
+    const [showTooltip, setShowTooltip] = useState(false);
+    const hoverTimer = useRef(null);
+
+    useEffect(() => {
+        console.log('Game phase changed:', gameState.phase);
+        setIsNoDraw(gameState.phase !== GAME_PHASES.DISCOVERY);
+        if (gameState.phase === GAME_PHASES.DISCOVERY) {
+            setDeckToolTipContent('Click to draw a card to the harbor.');
+        } else {
+            setDeckToolTipContent('Cannot draw a card outside of the DISCOVERY phase.');
+        }
+    }, [gameState.phase]);
+
     const handleDrawToHarbor = () => {
         if (gameState.deck.length === 0) {
             console.warn('Deck is empty, cannot draw a card.');
@@ -35,19 +52,38 @@ export function Deck() {
 
             
         }
-    }
+    };
+
+    const handleDeckMouseEnter = () => {
+        if (isNoDraw) {
+            hoverTimer.current = setTimeout(() => setShowTooltip(true), 500);
+        }
+    };
+
+    const handleDeckMouseLeave = () => {
+        clearTimeout(hoverTimer.current);
+        setShowTooltip(false);
+    };
 
     return (
         <>
             <div id="deckWrapper">
-                {gameState.discardPile.length == 0 ? (
+                {gameState.discardPile.length === 0 ? (
                     <div className='discardPile discardPileOutline'>
                     </div>
                 ) : (
                     <img src={cardBack} alt="" className="discardPile cardSideways card" />
                 )}
                 <div className="deckCards">
-                    <img src={cardBack} alt="" className="deck card" onClick={() => {handleDrawToHarbor()}} />
+                    <div>
+                        <img src={cardBack} alt="" className={`deck card${isNoDraw ? ' noDraw' : ''}`} onClick={handleDrawToHarbor} onMouseEnter={handleDeckMouseEnter} onMouseLeave={handleDeckMouseLeave} />
+                        <div className={`deckTooltip${showTooltip && isNoDraw ? ' show' : ''}`}>
+                            <p>{deckToolTipContent}</p>
+                        </div>
+                    </div>
+                    <div className="deckCount">
+                        <p>{gameState.deck.length}</p>
+                    </div>
                 </div>
             </div>
         </>

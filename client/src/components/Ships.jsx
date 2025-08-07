@@ -49,7 +49,7 @@ function ShipCard({ ship }) {
         >
             <img src={ship.cardUrl} alt={ship.name} />
             <div
-                className={`cardDescription${showDescription ? ' show' : ''}`}
+                className={`shipCardDescription${showDescription ? ' show' : ''}`}
             >
                 {/* <h3>{ship.name}</h3> */}
                 <p>{ship.desc}</p>

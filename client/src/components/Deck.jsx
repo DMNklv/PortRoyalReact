@@ -75,11 +75,9 @@ export function Deck() {
                     <img src={cardBack} alt="" className="discardPile cardSideways card" />
                 )}
                 <div className="deckCards">
-                    <div>
-                        <img src={cardBack} alt="" className={`deck card${isNoDraw ? ' noDraw' : ''}`} onClick={handleDrawToHarbor} onMouseEnter={handleDeckMouseEnter} onMouseLeave={handleDeckMouseLeave} />
-                        <div className={`deckTooltip${showTooltip && isNoDraw ? ' show' : ''}`}>
-                            <p>{deckToolTipContent}</p>
-                        </div>
+                    <img src={cardBack} alt="" className={`deck card${isNoDraw ? ' noDraw' : ''}`} onClick={handleDrawToHarbor} onMouseEnter={handleDeckMouseEnter} onMouseLeave={handleDeckMouseLeave} />
+                    <div className={`deckTooltip${showTooltip && isNoDraw ? ' show' : ''}`}>
+                        <p>{deckToolTipContent}</p>
                     </div>
                     <div className="deckCount">
                         <p>{gameState.deck.length}</p>

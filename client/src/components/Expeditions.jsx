@@ -40,7 +40,7 @@ function ExpeditionCard({ expedition }) {
             onMouseLeave={handleMouseLeave}
         >
             <img src={expedition.cardUrl} alt={expedition.name} />
-            <div className={`cardDescription${showDescription ? ' show' : ''}`}>
+            <div className={`expeditionCardDescription${showDescription ? ' show' : ''}`}>
                 <p>{expedition.desc}</p>
             </div>
         </div>

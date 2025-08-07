@@ -30,7 +30,7 @@
 }
 
 .deckCards {
-
+    position: relative;
 }
 
 .deck {
@@ -60,6 +60,7 @@
 }
 
 .card {
+    position: relative;
     min-width: 102px;
     min-height: 152px;
     width: 127.5px;
@@ -107,6 +108,24 @@
     width: 100%;
 }
 
+.cardsSegment .card {
+    margin-left: var(--card-overlap, -20px);
+    transition: 
+        margin 0.2s,
+        box-shadow 0.2s,
+        z-index 0s;
+    z-index: 1;
+    position: relative;
+}
+.cardsSegment .card:first-child {
+    margin-left: 0;
+}
+.cardsSegment .card:hover {
+    z-index: 10;
+    margin-top: -10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
 .expeditionCardsSegment {
     /* display: flex; */
     display: inline-flex;
@@ -117,8 +136,36 @@
     width: 100%;
 }
 
-.cardDescription, .deckTooltip {
-    position: relative;
+.shipCardDescription {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: calc(100% + 10px);
+    translate: -50% 0;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    backdrop-filter: blur(5px);
+    color: white;
+    /* color: black; */
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 0;
+    opacity: 0;
+    transition: scale 0.2s cubic-bezier(0,0.0,0.25,1.00), opacity 0.2s, backdrop-filter 0.1s, background-color 0.1s;
+    transform-origin: center center;
+    pointer-events: none;
+    cursor: help;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.personCardDescription {
+    position: absolute;
+    z-index: 100;
+    bottom: calc(100% + 10px);
     left: 50%;
     translate: -50% 0;
     width: 200px;
@@ -141,13 +188,90 @@
     user-select: none; /* Standard syntax */
 }
 
-.cardDescription.show, .deckTooltip.show {
+.personCardDescription::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid rgba(0, 0, 0, 0.5);
+}
+
+.expeditionCardDescription {
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 10px);
+    left: 50%;
+    translate: -50% 0;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    backdrop-filter: blur(5px);
+    color: white;
+    /* color: black; */
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 0;
+    opacity: 0;
+    transition: scale 0.2s cubic-bezier(0,0.0,0.25,1.00), opacity 0.2s, backdrop-filter 0.1s, background-color 0.1s;
+    transform-origin: center center;
+    pointer-events: none;
+    cursor: help;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.shipCardDescription::before, .expeditionCardDescription::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.5);
+}
+
+.deckTooltip {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    translate: -50% 0;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    backdrop-filter: blur(5px);
+    color: white;
+    /* color: black; */
+    border-radius: 15px;
+    padding: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    scale: 0;
+    opacity: 0;
+    transition: scale 0.2s cubic-bezier(0,0.0,0.25,1.00), opacity 0.2s, backdrop-filter 0.1s, background-color 0.1s;
+    transform-origin: center center;
+    pointer-events: none;
+    cursor: help;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+.shipCardDescription.show, .personCardDescription.show, .expeditionCardDescription.show, .deckTooltip.show {
     scale: 1;
     opacity: 1;
     pointer-events: auto;
 }
 
-.cardDescription.show:hover, .deckTooltip.show {
+.shipCardDescription.show:hover, .personCardDescription.show:hover, .expeditionCardDescription.show:hover, .deckTooltip.show:hover {
     scale: 1.05;
     background-color: rgba(0, 0, 0, 0.8);
     /* background-color: rgba(255, 255, 255, 0.9); */

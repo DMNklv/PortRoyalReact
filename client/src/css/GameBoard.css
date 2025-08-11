@@ -23,10 +23,11 @@
 }
 
 #deckWrapper {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
+    /* display: flex;
+    flex-direction: column; */
+    margin: auto 0;
     width: 20%;
+    min-width: 250px;
 }
 
 .deckCards {
@@ -85,9 +86,10 @@
 }
 
 #shipsAndPersonsWrapper {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     width: 80%;
+    /* width: auto; */
 }
 
 .personsWrapper {
@@ -102,10 +104,13 @@
 
 
 .cardsSegment {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,  minmax(10px, max-content));
     align-items: center;
+    width: 90%;
     height: 100%;
-    width: 100%;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 .expeditionCardsSegment {
@@ -281,7 +286,9 @@
 }
 
 .shipCard:hover, .personCard:hover {
-    box-shadow: 0 0 10px 2px rgb(38, 28, 170);
+    box-shadow: 0 0 10px 2px rgb(35, 34, 47);
+    z-index: 10;
+    translate: 0 -5px;
 }
 
 .expeditionCard:hover {

@@ -58,7 +58,7 @@ const gameSlice = createSlice({
             
             try {
                 const deck = shuffleDeck(buildDeck(
-                    gameSettings.justOneMoreContract ? cardsData1.cards.justOneMoreContractCards : cardsData1.cards.baseGameCards, cardsData1.baseDeckComposition1, gameSettings.numberOfPlayers
+                    gameSettings.justOneMoreContract ? cardsData1.cards.justOneMoreContractCards : cardsData1.cards.baseGameCards, cardsData1.baseDeckComposition, gameSettings.numberOfPlayers
                 ));
 
                 console.log('🃏 Deck built and shuffled:', deck);

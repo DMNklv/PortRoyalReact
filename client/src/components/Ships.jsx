@@ -17,18 +17,20 @@ export function Ships() {
     const gameState = useSelector(state => state.game);
     const shipsInHarbor = gameState.harbor.ships || [];
 
+    // const [duplicateShipColorPresent, setDuplicateShipColorPresent] = useState(false);
+
     return (
         <div className="shipsWrapper">
             <div className="cardsSegment">
                 {shipsInHarbor.map((ship, index) => (
-                    <ShipCard key={ship.instanceId} ship={ship} />
+                    <ShipCard key={ship.instanceId} ship={ship} duplicateShipColor={gameState.duplicateShipColor}/>
                 ))}
             </div>
         </div>
     );
 }
 
-function ShipCard({ ship }) {
+function ShipCard({ ship, duplicateShipColor }) {
     const [showDescription, setShowDescription] = useState(false);
     const timeRef = useRef(null);
 
@@ -43,7 +45,7 @@ function ShipCard({ ship }) {
 
     return (
         <div
-            className="card shipCard"
+            className={`card shipCard${duplicateShipColor.flag && duplicateShipColor.color === ship.color ? ' duplicateColorShip' : ''}`}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >

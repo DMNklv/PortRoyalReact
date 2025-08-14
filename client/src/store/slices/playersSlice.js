@@ -7,8 +7,8 @@ const createInitialPlayer = (id, name, isBot = false) => ({
     isConnected: true,
     hand: [],
     ships: [],
-    people: [],
-    buildings: [],
+    persons: [],
+    expeditions: [],
     coins: 3,
     victoryPoints: 0,
     influence: 0,
@@ -25,7 +25,7 @@ const createInitialPlayer = (id, name, isBot = false) => ({
     gameStats: {
         cardsDrawn: 0,
         shipsSunk: 0,
-        peopleHired: 0,
+        personsHired: 0,
         tradesCompleted: 0,
     }
 });
@@ -90,10 +90,10 @@ const playersSlice = createSlice({
                         player.ships.push(cardWithPlayerId);
                         break;
                     case 'person':
-                        player.people.push(cardWithPlayerId);
+                        player.persons.push(cardWithPlayerId);
                         break;
-                    case 'building':
-                        player.buildings.push(cardWithPlayerId);
+                    case 'expedition':
+                        player.expeditions.push(cardWithPlayerId);
                         break;
                     default:
                         player.hand.push(cardWithPlayerId);
@@ -110,10 +110,10 @@ const playersSlice = createSlice({
                         player.ships = player.ships.filter(card => card.id !== cardId);
                         break;
                     case 'person':
-                        player.people = player.people.filter(card => card.id !== cardId);
+                        player.persons = player.persons.filter(card => card.id !== cardId);
                         break;
-                    case 'building':
-                        player.buildings = player.buildings.filter(card => card.id !== cardId);
+                    case 'expedition':
+                        player.expeditions = player.expeditions.filter(card => card.id !== cardId);
                         break;
                     default:
                         player.hand = player.hand.filter(card => card.id !== cardId);
@@ -146,11 +146,11 @@ const playersSlice = createSlice({
             const playerId = action.payload;
             const player = state.players.find(p => p.id === playerId);
             if (player) {
-                player.influence = player.people.reduce((sum, card) => sum + (card.influence || 0), 0);
+                player.influence = player.persons.reduce((sum, card) => sum + (card.influence || 0), 0);
                 player.swords = player.ships.reduce((sum, card) => sum + (card.swords || 0), 0);
-                player.anchors = player.people.reduce((sum, card) => sum + (card.anchors || 0), 0);
-                player.houses = player.buildings.reduce((sum, card) => sum + (card.houses || 0), 0);
-                player.crosses = player.buildings.reduce((sum, card) => sum + (card.crosses || 0), 0);
+                player.anchors = player.persons.reduce((sum, card) => sum + (card.anchors || 0), 0);
+                player.houses = player.expeditions.reduce((sum, card) => sum + (card.houses || 0), 0);
+                player.crosses = player.expeditions.reduce((sum, card) => sum + (card.crosses || 0), 0);
             }
         },
         

@@ -16,6 +16,7 @@ const initialState = {
     currentPlayerIndex: 0,
     round: 1,
     harbor: {ships: [], persons: []},
+    duplicateShipColor: {flag: false, color: null},
     deck: [],
     discardPile: [],
     expeditionCards: [],
@@ -100,6 +101,7 @@ const gameSlice = createSlice({
                     case 'ship':
                         if (state.harbor.ships.some(ship => ship.color === card.color)) {
                             console.warn(`A ship of color ${card.color} already exists in the harbor.`);
+                            Object.assign(state.duplicateShipColor, { flag: true, color: card.color });
                             state.phase = GAME_PHASES.TRADE_HIRE; // Stop drawing if a ship of the same color already exists
                         }
                         state.harbor.ships.push({

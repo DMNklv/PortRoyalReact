@@ -53,6 +53,10 @@
     cursor: not-allowed;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
+
+    &:hover {
+        box-shadow: none;
+    }
 }
 
 .discardPile {
@@ -279,6 +283,11 @@
     transition: all .1s;
 }
 
+.shipCard.duplicateColorShip {
+    outline: 2px solid rgb(217, 30, 30);
+    box-shadow: 0 0 10px 3px rgb(217, 30, 30);
+}
+
 .expeditionCard {
     border-radius: 15px;
     cursor: pointer;
@@ -286,9 +295,10 @@
 }
 
 .shipCard:hover, .personCard:hover {
-    box-shadow: 0 0 10px 2px rgb(35, 34, 47);
+    box-shadow: 0 5px 5px 0 rgb(35, 34, 47);
     z-index: 10;
-    translate: 0 -5px;
+    translate: 0 -10px;
+    scale: 1.05;
 }
 
 .expeditionCard:hover {

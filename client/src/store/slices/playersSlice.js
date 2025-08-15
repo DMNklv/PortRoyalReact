@@ -1,11 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const createInitialPlayer = (id, name, isBot = false) => ({
+const createPlayer = (id, name, isBot = false) => ({
     id,
     name,
     isBot,
     isConnected: true,
-    hand: [],
     ships: [],
     persons: [],
     expeditions: [],
@@ -43,7 +42,7 @@ const playersSlice = createSlice({
         addPlayer: (state, action) => {
             const { name, isBot = false } = action.payload;
             if (state.players.length <= state.numberOfPlayers) {
-                const newPlayer = createInitialPlayer(`player_${state.players.length + 1}`, name, isBot);
+                const newPlayer = createPlayer(`player_${state.players.length + 1}`, name, isBot);
                 state.players.push(newPlayer);
                 if (state.players.length === 1) {
                     state.currentPlayerId = newPlayer.id; // Set the first player as current
@@ -80,29 +79,30 @@ const playersSlice = createSlice({
         },
 
         addCardToPlayer: (state, action) => {
-            const { playerId, card, cardType = `hand` } = action.payload;
+            const { playerId, card, cardType } = action.payload;
             const player = state.players.find(p => p.id === playerId);
             if (player) {
                 const cardWithPlayerId = { ...card, ownerId: playerId };
 
                 switch (cardType) {
                     case 'ship':
+                        cardWithPlayerId.instance = player.ships.filter(c => c.id === card.id).length + 1; // Track instances of the same ship
                         player.ships.push(cardWithPlayerId);
+                        player.coins += card.coins || 0;
                         break;
                     case 'person':
+                        cardWithPlayerId.instance = player.persons.filter(c => c.id === card.id).length + 1; // Track instances of the same person
                         player.persons.push(cardWithPlayerId);
                         break;
                     case 'expedition':
                         player.expeditions.push(cardWithPlayerId);
                         break;
-                    default:
-                        player.hand.push(cardWithPlayerId);
                 }
             }
         },
 
         removeCardFromPlayer: (state, action) => {
-            const { playerId, cardId, cardType = `hand` } = action.payload;
+            const { playerId, cardId, cardType } = action.payload;
             const player = state.players.find(p => p.id === playerId);
             if (player) {
                 switch (cardType) {

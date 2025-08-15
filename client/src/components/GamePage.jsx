@@ -18,10 +18,12 @@ export default function GamePage() {
     
     // Make sure we have players first
     if (playersState.players.length === 0) {
-      console.log('👥 Adding default players...');
+      console.log('👥 Adding test players...');
       dispatch(addPlayer({ name: 'Player 1' }));
       dispatch(addPlayer({ name: 'Player 2' }));
       dispatch(addPlayer({ name: 'Bot 1', isBot: true }));
+      dispatch(addPlayer({ name: 'Bot 2', isBot: true }));
+      dispatch(addPlayer({ name: 'Bot 3', isBot: true }));
     }
     
     dispatch(startGame(gameState.gameSettings));

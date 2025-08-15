@@ -760,8 +760,8 @@ const cardsData = {
       { cardId: 57, cardName: "yellow-2Cutlass-3Coin", quantity: 0 },
       { cardId: 58, cardName: "yellow-4Cutlass-3Coin", quantity: 0 },
       { cardId: 59, cardName: "yellow-4Cutlass-4Coin", quantity: 0 },
-      { cardId: 60, cardName: "taxIncrease-MaxSwords", quantity: 0 },
-      { cardId: 61, cardName: "taxIncrease-MinVP", quantity: 0 },
+      { cardId: 60, cardName: "taxIncrease-MaxSwords", quantity: 2 },
+      { cardId: 61, cardName: "taxIncrease-MinVP", quantity: 2 },
     ],
     testShipsBaseDeckComposition: [
       { cardId: 0, cardName: "admiral-1VP-5Coin", quantity: 0 },

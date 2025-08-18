@@ -3,11 +3,11 @@ import { buildDeck, shuffleDeck } from '../../utils/deckBuilder';
 import cardsData1 from '../../data/cardsData1';
 
 export const GAME_PHASES = {
-    SETUP: 'setup',
-    DISCOVERY: 'discovery',
-    TRADE_HIRE: 'trade_hire',
-    END_TURN: 'end_turn',
-    GAME_OVER: 'game_over'
+    SETUP: 'Setup',
+    DISCOVERY: 'Discovery',
+    TRADE_HIRE: 'Trade & Hire',
+    END_TURN: 'End Turn',
+    GAME_OVER: 'Game Over'
 };
 
 const initialState = {

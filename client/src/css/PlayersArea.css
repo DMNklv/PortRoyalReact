@@ -1,3 +1,76 @@
-#playersAreaWrapper {
+#playersAndGameInfoWrapper {
     height: 20%;
+}
+
+.playersWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 70%;
+}
+
+.playersWrapper .playerWrapper {
+    width: 18%;
+    height: 70%;
+    background-color: #f0f0f0;
+    color: black;
+    /* border: 1px solid #ccc; */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.playerAvatar {
+    height: 100%;
+    /* border-radius: 8px; */
+    margin-right: 10px;
+}
+
+.playerInfoAndStats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+}
+
+.playerInfo {
+    display: flex;
+    /* align-items: center; */
+    margin-bottom: 10px;
+    border-bottom: 1px solid #000;
+}
+
+
+.playerName {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.playerStats {
+    display: flex;
+    
+}
+
+.playerStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.playerStat img {
+    height: 36px;
+}
+
+#gameInfo {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    color: white;
+    border-radius: 0 0 8px 8px;
 }

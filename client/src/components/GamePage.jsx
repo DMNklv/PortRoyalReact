@@ -78,14 +78,14 @@ export default function GamePage() {
         </label> */}
       </div>
       
-      <div className="players">
+      {/* <div className="players">
         <h3>Players ({playersState.players.length})</h3>
         {playersState.players.map(player => (
           <div key={player.id}>
             {player.name} {player.isBot && '(Bot)'}
           </div>
         ))}
-      </div>
+      </div> */}
       
       <button 
         onClick={() => handleStartGame()}

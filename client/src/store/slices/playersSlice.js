@@ -8,7 +8,7 @@ const createPlayer = (id, name, isBot = false) => ({
     ships: [],
     persons: [],
     expeditions: [],
-    coins: 3,
+    coins: 0,
     victoryPoints: 0,
     influence: 0,
     swords: 0,

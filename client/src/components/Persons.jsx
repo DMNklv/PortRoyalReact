@@ -38,6 +38,7 @@ function PersonCard({ person }) {
         >
             <div className={`personCardDescription${showDescription ? ' show' : ''}`} >
                 {/* <h3>{person.name}</h3> */}
+                <img src={person.cardUrl} alt={person.name} />
                 <p>{person.desc}</p>
             </div>
             <img src={person.cardUrl} alt={person.name} />

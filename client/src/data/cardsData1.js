@@ -52,7 +52,7 @@ const cardsData = {
           type: "person",
           cost: 6,
           victoryPoints: 1,
-          desc: "The Jack of all Trades is a Joker type of card and can be discarded instead of a Priest, Settler or Captain to claim an Expedition.",
+          desc: "The Jack of all Trades is a Joker type of card and can be discarded instead of a Captain, Priest or Settler to claim an Expedition.",
           cardUrl: "/persons/jackOfAllTrades-1VP-6Coin.png",
         },
         {

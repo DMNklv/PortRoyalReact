@@ -640,12 +640,6 @@ const cardsData = {
       { cardId: 27, cardName: "expedition-4VP-2Coin-2Cabin", quantity: 1 },
       { cardId: 28, cardName: "expedition-4VP-2Coin-2Cross", quantity: 1 },
       {
-        cardId: 29,
-        cardName: "expedition-5VP-3Coin-1Anchor_1Cross_1Cabin",
-        quantity: 1,
-        minPlayers: 5,
-      },
-      {
         cardId: 30,
         cardName: "expedition-6VP-3Coin-2Anchor_1Cabin",
         quantity: 1,
@@ -717,12 +711,6 @@ const cardsData = {
       { cardId: 27, cardName: "expedition-4VP-2Coin-2Cabin", quantity: 1 },
       { cardId: 28, cardName: "expedition-4VP-2Coin-2Cross", quantity: 1 },
       {
-        cardId: 29,
-        cardName: "expedition-5VP-3Coin-1Anchor_1Cross_1Cabin",
-        quantity: 1,
-        minPlayers: 5,
-      },
-      {
         cardId: 30,
         cardName: "expedition-6VP-3Coin-2Anchor_1Cabin",
         quantity: 1,
@@ -793,12 +781,6 @@ const cardsData = {
       { cardId: 26, cardName: "expedition-4VP-2Coin-2Anchor", quantity: 1 },
       { cardId: 27, cardName: "expedition-4VP-2Coin-2Cabin", quantity: 1 },
       { cardId: 28, cardName: "expedition-4VP-2Coin-2Cross", quantity: 1 },
-      {
-        cardId: 29,
-        cardName: "expedition-5VP-3Coin-1Anchor_1Cross_1Cabin",
-        quantity: 1,
-        minPlayers: 5,
-      },
       {
         cardId: 30,
         cardName: "expedition-6VP-3Coin-2Anchor_1Cabin",

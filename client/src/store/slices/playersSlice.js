@@ -9,6 +9,7 @@ const createPlayer = (id, name, isBot = false) => ({
     persons: [],
     expeditions: [],
     coins: 0,
+    coinCards: [],
     victoryPoints: 0,
     influence: 0,
     swords: 0,
@@ -67,6 +68,19 @@ const playersSlice = createSlice({
             const player = state.players.find(p => p.id === playerId);
             if (player) {
                 player.coins = Math.max(0, player.coins + amount); // Ensure coins do not go negative
+            }
+        },
+
+        dealCoinCardToPlayer: (state, action) => {
+            const { playerId, card } = action.payload;
+            const player = state.players.find(p => p.id === playerId);
+            if (player) {
+                player.coins += 1;
+                
+                //? Track which cards are held as coins
+                player.coinCards.push(card);
+                // console.log(`Dealt coin card to player ${player.name}: ${card.name}`);
+                console.log(`Player ${player.name} now has the following cards as coins: `, JSON.parse(JSON.stringify(player.coinCards)));
             }
         },
 
@@ -175,6 +189,7 @@ export const {
     addPlayer,
     removePlayer,
     updatePlayerCoins,
+    dealCoinCardToPlayer,
     updatePlayerVictoryPoints,
     addCardToPlayer,
     removeCardFromPlayer,

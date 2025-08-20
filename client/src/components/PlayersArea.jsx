@@ -28,7 +28,7 @@ export function PlayersArea() {
 
 function Player({ player }) {
     return (
-        <div className='playerWrapper'>
+        <div className='playerWrapper' title={JSON.stringify(player)}>
             <img src={`/general/expedition_required.png`} alt={`${player.name} Img`} className='playerAvatar' />
             <div className='playerInfoAndStats'>
                 <div className='playerInfo'>

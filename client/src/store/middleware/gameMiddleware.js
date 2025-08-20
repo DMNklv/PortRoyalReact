@@ -10,9 +10,15 @@ import {
   resetPlayerTurn 
 } from '../slices/playersSlice';
 
+import { dealStartingCoins } from './thunks/dealCoinsThunk';
+
 const gameMiddleware = store => next => action => {
     const result = next(action);
     const state = store.getState();
+
+    if (action.type === 'game/startGame') {
+        store.dispatch(dealStartingCoins());
+    }
 
     if (action.type.includes('addCardToPlayer') || action.type.includes('removeCardFromPlayer')) {
         const playerId = action.payload.playerId;

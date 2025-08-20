@@ -70,6 +70,15 @@ const gameSlice = createSlice({
                 state.phase = GAME_PHASES.DISCOVERY;
                 state.gameId = `game_${Date.now()}`;
                 state.error = null;
+
+                if (state.gameSettings.numberOfPlayers === 5) {
+                    const expeditionCardForFivePlayers = cardsData1.cards.baseGameCards.find(card => card.minPlayers === 5);
+                    state.expeditionCards.push({
+                        ...expeditionCardForFivePlayers,
+                        instanceId: `expedition_board_${expeditionCardForFivePlayers.id}_${state.expeditionCards.length}`,
+                        position: state.expeditionCards.length
+                    });
+                }
                 
                 console.log('✅ Game started successfully!');
             } catch (error) {
@@ -80,6 +89,10 @@ const gameSlice = createSlice({
 
         setGamePhase: (state, action) => {
             state.phase = action.payload;
+        },
+
+        setDeck: (state, action) => {
+            state.deck = action.payload;
         },
 
         nextPlayer: (state) => {
@@ -197,6 +210,7 @@ const gameSlice = createSlice({
 export const {
     startGame,
     setGamePhase,
+    setDeck,
     nextPlayer,
     drawCardToHarbor,
     removeCardFromHarbor,

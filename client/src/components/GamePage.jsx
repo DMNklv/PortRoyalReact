@@ -34,71 +34,74 @@ export default function GamePage() {
     <>
       <PlayersArea />
       <GameBoard  />
-      <div className="settings">
-        <label>
-          Number of players:
-          <select 
-            value={gameState.gameSettings.numberOfPlayers}
-            onChange={(e) => setGameSettings({
-              ...gameState.gameSettings,
-              numberOfPlayers: parseInt(e.target.value)
-            })}
-          >
-            <option value={2}>2 Players</option>
-            <option value={3}>3 Players</option>
-            <option value={4}>4 Players</option>
-            <option value={5}>5 Players</option>
-          </select>
-        </label>
-        
-        <label>
-          Victory Points:
-          <input
-            type="number"
-            min="8"
-            max="20"
-            value={gameState.gameSettings.victoryPoints}
-            onChange={(e) => setGameSettings({
-              ...gameState.gameSettings,
-              victoryPoints: parseInt(e.target.value)
-            })}
-          />
-        </label>
-        
-        {/* <label>
-          <input
-            type="checkbox"
-            checked={gameState.gameSettings.expeditionMode}
-            onChange={(e) => setGameSettings({
-              ...gameState.gameSettings,
-              expeditionMode: e.target.checked
-            })}
-          />
-          Expedition Mode
-        </label> */}
-      </div>
-      
-      {/* <div className="players">
-        <h3>Players ({playersState.players.length})</h3>
-        {playersState.players.map(player => (
-          <div key={player.id}>
-            {player.name} {player.isBot && '(Bot)'}
+      {gameState.phase === 'Setup' && (
+        <>
+          <div className="settings">
+            <label>
+              Number of players:
+              <select 
+                value={gameState.gameSettings.numberOfPlayers}
+                onChange={(e) => setGameSettings({
+                  ...gameState.gameSettings,
+                  numberOfPlayers: parseInt(e.target.value)
+                })}
+              >
+                <option value={2}>2 Players</option>
+                <option value={3}>3 Players</option>
+                <option value={4}>4 Players</option>
+                <option value={5}>5 Players</option>
+              </select>
+            </label>
+            
+            <label>
+              Victory Points:
+              <input
+                type="number"
+                min="8"
+                max="20"
+                value={gameState.gameSettings.victoryPoints}
+                onChange={(e) => setGameSettings({
+                  ...gameState.gameSettings,
+                  victoryPoints: parseInt(e.target.value)
+                })}
+              />
+            </label>
+            
+            {/* <label>
+              <input
+                type="checkbox"
+                checked={gameState.gameSettings.expeditionMode}
+                onChange={(e) => setGameSettings({
+                  ...gameState.gameSettings,
+                  expeditionMode: e.target.checked
+                })}
+              />
+              Expedition Mode
+            </label> */}
           </div>
-        ))}
-      </div> */}
-      
-      <button 
-        onClick={() => handleStartGame()}
-        disabled={gameState.isLoading}
-        className="start-game-btn"
-      >
-        {gameState.isLoading ? 'Initializing...' : 'Start Game'}
-      </button>
-      
-      {gameState.error && (
-        <div className="error">
-          Error: {gameState.error}
-        </div>
+          
+          {/* <div className="players">
+            <h3>Players ({playersState.players.length})</h3>
+            {playersState.players.map(player => (
+              <div key={player.id}>
+                {player.name} {player.isBot && '(Bot)'}
+              </div>
+            ))}
+          </div> */}
+          <button 
+            onClick={() => handleStartGame()}
+            disabled={gameState.isLoading}
+            className="start-game-btn"
+          >
+            {gameState.isLoading ? 'Initializing...' : 'Start Game'}
+          </button>
+        
+          {gameState.error && (
+            <div className="error">
+            Error: {gameState.error}
+            </div>
+          )}
+        </>
       )}
     </>
     // </GameProvider>

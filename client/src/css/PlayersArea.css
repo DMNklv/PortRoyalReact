@@ -82,3 +82,9 @@
     color: white;
     border-radius: 0 0 8px 8px;
 }
+
+.currentActivePlayer {
+    outline: 3px outset #ffcc00;
+    box-shadow: 0 0 10px #ffcc00;
+    scale: 1.05;
+}

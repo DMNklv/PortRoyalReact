@@ -27,8 +27,11 @@ export function PlayersArea() {
 }
 
 function Player({ player }) {
+
+    const currentPlayerId = useSelector(state => state.players.currentPlayerId);
+
     return (
-        <div className='playerWrapper' title={JSON.stringify(player)}>
+        <div className={`playerWrapper${player.id === currentPlayerId ? ' currentActivePlayer' : ''}`} title={JSON.stringify(player)}>
             <img src={`/general/expedition_required.png`} alt={`${player.name} Img`} className='playerAvatar' />
             <div className='playerInfoAndStats'>
                 <div className='playerInfo'>

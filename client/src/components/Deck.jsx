@@ -67,21 +67,22 @@ export function Deck() {
 
     return (
         <>
-            <div id="deckWrapper">
+            <div id="deckAndDiscardPileWrapper">
                 {gameState.discardPile.length === 0 ? (
-                    <div className='discardPile discardPileOutline'>
+                    <div className='discardPile discardPileOutline' title='Discard Pile'>
                     </div>
                 ) : (
-                    <img src={cardBack} alt="" className="discardPile cardSideways card" />
+                    <img src={cardBack} alt="" className="discardPile cardSideways card" title='Discard Pile' />
                 )}
-                <div className="deckCards">
+                <div className="deckWrapper">
                     <img src={cardBack} alt="" className={`deck card${isNoDraw ? ' noDraw' : ''}`} onClick={handleDrawToHarbor} onMouseEnter={handleDeckMouseEnter} onMouseLeave={handleDeckMouseLeave} />
+                    <div className="deckCount" title='Remaining Cards in Deck'>
+                        <p>{gameState.deck.length}</p>
+                    </div>
                     <div className={`deckTooltip${showTooltip && isNoDraw ? ' show' : ''}`}>
                         <p>{deckToolTipContent}</p>
                     </div>
-                    <div className="deckCount">
-                        <p>{gameState.deck.length}</p>
-                    </div>
+                    
                 </div>
             </div>
         </>

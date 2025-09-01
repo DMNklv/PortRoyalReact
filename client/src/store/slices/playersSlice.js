@@ -33,7 +33,7 @@ const createPlayer = (id, name, isBot = false) => ({
 const initialState = {
     players: [],
     numberOfPlayers: 0,
-    currentPlayerId: null,
+    currentPlayersIds: {currentActivePlayer: null, currentHiringPlayer: null},
 };
 
 const playersSlice = createSlice({
@@ -46,7 +46,7 @@ const playersSlice = createSlice({
                 const newPlayer = createPlayer(`player_${state.players.length + 1}`, name, isBot);
                 state.players.push(newPlayer);
                 if (state.players.length === 1) {
-                    state.currentPlayerId = newPlayer.id; // Set the first player as current
+                    state.currentPlayersIds.currentActivePlayer = newPlayer.id; // Set the first player as current
                 }
                 state.numberOfPlayers = state.players.length; // Update the number of players
             }
@@ -58,9 +58,9 @@ const playersSlice = createSlice({
         removePlayer: (state, action) => {
             const playerId = action.payload;
             state.players = state.players.filter(p => p.id !== playerId);
-            if (state.currentPlayerId === playerId) {
-                state.currentPlayerId = state.players.length > 0 ? state.players[0].id : null;
-            }
+            // if (state.currentPlayersIds.currentActivePlayer === playerId) {
+            //     state.currentPlayersIds.currentActivePlayer = state.players.length > 0 ? state.players[0].id : null;
+            // }
         },
 
         updatePlayerCoins: (state, action) => {
@@ -168,10 +168,10 @@ const playersSlice = createSlice({
             }
         },
         
-        setCurrentPlayer: (state, action) => {
+        setCurrentActivePlayer: (state, action) => {
             const playerId = action.payload;
             if (state.players.some(p => p.id === playerId)) {
-                state.currentPlayerId = playerId;
+                state.currentPlayersIds.currentActivePlayer = playerId;
             } else {
                 console.warn(`Player with ID ${playerId} does not exist.`);
             }

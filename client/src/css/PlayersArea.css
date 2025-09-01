@@ -1,5 +1,8 @@
 #playersAndGameInfoWrapper {
     height: 20%;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .playersWrapper {
@@ -46,7 +49,8 @@
 
 
 .playerName {
-    font-size: 1.1em;
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 1.3em;
     font-weight: bold;
 }
 
@@ -83,8 +87,34 @@
     border-radius: 0 0 8px 8px;
 }
 
+.phaseInfo {
+    margin: 0 15px;
+    font-family: 'Tangerine Bold', cursive;
+    font-size: 2em;
+}
+
+.gameInfoMetric {
+    margin: 0 15px;
+}
+
 .currentActivePlayer {
-    outline: 3px outset #ffcc00;
-    box-shadow: 0 0 10px #ffcc00;
+    outline: 3px outset #ffcc00 !important;
+    box-shadow: 0 0 10px #ffcc00 !important;
     scale: 1.05;
+}
+
+.currentHiringPlayer {
+    outline: 3px outset #2bff00;
+    box-shadow: 0 0 10px #2bff00;
+}
+
+.currentActivePlayer.currentHiringPlayer:before {
+    content:"";
+    top:1px;
+    left:1px;
+    right:1px;
+    bottom:1px;
+    border: #2bff00 outset 3px;
+    border-radius: 8px;
+    position: absolute;
 }

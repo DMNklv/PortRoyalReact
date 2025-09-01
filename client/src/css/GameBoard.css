@@ -22,7 +22,7 @@
     background-size: cover; 
 }
 
-#deckWrapper {
+#deckAndDiscardPileWrapper {
     /* display: flex;
     flex-direction: column; */
     margin: auto 0;
@@ -30,12 +30,12 @@
     min-width: 250px;
 }
 
-.deckCards {
+.deckWrapper {
     position: relative;
 }
 
 .deck {
-    margin: 20% auto 50% auto;
+    margin: 20% 0 0 0;
     border-radius: 15px;
     cursor: pointer;
     transition: scale .1s, box-shadow .2s;
@@ -44,6 +44,12 @@
 .deck:hover {
     scale: 1.05;
     box-shadow: 0 0 5px 3px rgb(58, 51, 63);
+}
+
+.deck:hover ~ .deckCount {
+    scale: 1.05;
+    top: -48px;
+    color: rgb(255, 255, 255, 0.9);
 }
 
 .deck:active {
@@ -61,9 +67,29 @@
     }
 }
 
+.deckCount {
+    position: relative;
+    top: -50px;
+    left: 50%;
+    translate: -50% 0;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: rgb(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    /* font-size: 1.1em; */
+    pointer-events: none;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    transition: all .1s;
+}
+
 .discardPile {
     margin: auto auto auto auto;
     border-radius: 15px;
+    cursor: help;
 }
 
 .card {
@@ -136,9 +162,9 @@
     top: calc(100% + 10px);
     translate: -50% 0;
     width: 200px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.8);
     /* background-color: rgba(255, 255, 255, 0.5); */
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
     color: white;
     /* color: black; */
     border-radius: 15px;
@@ -153,6 +179,12 @@
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+
+    img {
+        height: 100%;
+        z-index: 100;
+        image-rendering: pixelated;
+    }
 }
 
 .personCardDescription {
@@ -161,14 +193,21 @@
     align-items: center;
     position: absolute;
     z-index: 100;
-    bottom: calc(100% + 10px);
+    bottom: 100%;
     left: 50%;
     translate: -50% 0;
-    min-width: 400px;
+    min-width: 550px;
+    height: 400px;
+    font-family: 'Cookie', cursive;
+    font-size: 1.5em;
     /* background-color: rgba(255, 255, 255, 0.5); */
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    color: white;
+    /* background-color: rgba(0, 0, 0, 0.8); */
+    background-image: url(/general/oldScrollSideways.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* backdrop-filter: blur(5px); */
+    color: black;
     /* color: black; */
     border-radius: 15px;
     padding: 12px;
@@ -183,16 +222,24 @@
     user-select: none; /* Standard syntax */
 
     img {
-        height: 100%;
+        height: 75% !important;
         width: 50% !important;
         border-radius: 15px;
-        margin-right: 10px;
+        margin: 0 5px 0 70px;
         z-index: 100;
+        image-rendering: pixelated;
+
+    }
+
+    p {
+        margin: 0 55px 0 10px;
+        z-index: 100;
+        text-align: center;
     }
 
 }
 
-.personCardDescription::after {
+/* .personCardDescription::after {
     content: '';
     position: absolute;
     bottom: -10px;
@@ -203,7 +250,7 @@
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
     border-top: 10px solid rgba(0, 0, 0, 0.8);
-}
+} */
 
 .expeditionCardDescription {
     position: absolute;
@@ -231,7 +278,7 @@
     user-select: none; /* Standard syntax */
 }
 
-.shipCardDescription::before, .expeditionCardDescription::before {
+.shipCardDescription::before, .expeditionCardDescription::before, .deckTooltip::before {
     content: '';
     position: absolute;
     top: -10px;
@@ -281,16 +328,16 @@
     background-color: rgba(0, 0, 0, 0.9);
     /* background-color: rgba(255, 255, 255, 0.9); */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(20px);
+    /* backdrop-filter: blur(20px); */
 }
 
 .personCardDescription.show:hover {
     scale: 1.1;
     translate: -50% -20px;
-    background-color: rgba(0, 0, 0, 0.9);
+    /* background-color: rgba(0, 0, 0, 0.9); */
     /* background-color: rgba(255, 255, 255, 0.9); */
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(20px);
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); */
+    /* backdrop-filter: blur(20px); */
     transition: all 0.2s ease-in-out;
 }
 

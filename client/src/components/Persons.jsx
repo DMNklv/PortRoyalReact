@@ -32,7 +32,7 @@ function PersonCard({ person }) {
             let translateValue = 250 - cardRect.width/2 - (window.innerWidth - cardRect.right);
             if ((window.innerWidth - 8 - cardRect.right < 200) && translateValue > 0) {
                 style.translate = `calc(-50% - ${translateValue}px) 0`;
-                console.log('Right overflow detected', style.translate);
+                // console.log('Right overflow detected', style.translate);
             }
             setDescStyle(style);
         }

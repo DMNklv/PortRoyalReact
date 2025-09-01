@@ -5,7 +5,7 @@ export function PlayersArea() {
 
     const gameState = useSelector(state => state.game);
     const playerState = useSelector(state => state.players);
-    const players = playerState.players || [];
+    const players = playerState.players;
 
     return (
         <>
@@ -16,10 +16,12 @@ export function PlayersArea() {
                     ))}
                 </div>
                 <div id='gameInfo'>
-                    <div>Current Phase: {gameState.phase}</div>
-                    <div>Active player: Player 1</div>
-                    <div>Current Player: Player 1</div>
-                    <div>Round: 1</div>
+                    <div className='phaseInfo'>{gameState.phase} Phase</div>
+                    <div className='gameInfoMetric'>Active player: {playerState.currentPlayersIds.currentActivePlayer}</div>
+                    {playerState.currentPlayersIds.currentHiringPlayer && (
+                        <div className='gameInfoMetric'>Current Hiring Player: {playerState.currentPlayersIds.currentHiringPlayer}</div>
+                    )}
+                    <div className='gameInfoMetric'>Round: {gameState.round}</div>
                 </div>
             </div>
         </>
@@ -28,10 +30,10 @@ export function PlayersArea() {
 
 function Player({ player }) {
 
-    const currentPlayerId = useSelector(state => state.players.currentPlayerId);
+    const currentPlayersIds = useSelector(state => state.players.currentPlayersIds);
 
     return (
-        <div className={`playerWrapper${player.id === currentPlayerId ? ' currentActivePlayer' : ''}`} title={JSON.stringify(player)}>
+        <div className={`playerWrapper${player.id === currentPlayersIds.currentActivePlayer ? ' currentActivePlayer' : ''}${player.id === currentPlayersIds.currentHiringPlayer ? ' currentHiringPlayer' : ''}`}>
             <img src={`/general/expedition_required.png`} alt={`${player.name} Img`} className='playerAvatar' />
             <div className='playerInfoAndStats'>
                 <div className='playerInfo'>

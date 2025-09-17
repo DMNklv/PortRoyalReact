@@ -30,7 +30,7 @@ export function Deck() {
     const hoverTimer = useRef(null);
 
     useEffect(() => {
-        console.log('Game phase changed:', gameState.phase);
+        console.log('⏭️ Game phase changed:', gameState.phase);
         setIsNoDraw(gameState.phase !== GAME_PHASES.DISCOVERY);
         if (gameState.phase === GAME_PHASES.DISCOVERY) {
             setDeckToolTipContent('Click to draw a card to the harbor.');

@@ -5,7 +5,7 @@ import { Deck } from "./Deck";
 import { Expeditions } from "./Expeditions";
 import { Persons } from "./Persons";
 import { Ships } from "./Ships";
-import '../css/Gameboard.css'
+import '../css/GameBoard.css'
 
 export function GameBoard() {
     const dispatch = useDispatch();

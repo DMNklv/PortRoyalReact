@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
 // import { GameProvider, GameContext } from "../contexts/GameContext";
-import { GameBoard } from "./GameBoard";
-import { PlayersArea } from "./PlayersArea";
+import { GameBoard } from "../components/GameBoard";
+import { PlayersArea } from "../components/PlayersArea";
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame } from '../store/slices/gameSlice';
 import { addPlayer } from '../store/slices/playersSlice';

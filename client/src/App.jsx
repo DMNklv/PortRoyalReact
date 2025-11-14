@@ -2,9 +2,10 @@ import React from 'react';
 import { useState, createContext } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './css/App.css'
-import AuthPage from './components/AuthPage';
-import LobbyPage from './components/LobbyPage';
-import GamePage from './components/GamePage';
+import AuthPage from './pages/AuthPage';
+import LobbyPage from './pages/LobbyPage';
+import GamePage from './pages/GamePage';
+import HomePage from './pages/HomePage';
 
 
 // export const AuthContext = createContext(null);
@@ -82,6 +83,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/game" />} />
+          <Route path="/home" element={<HomePage />} />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/lobby" element={<LobbyPage />} />
           <Route path="/game" element={<GamePage />} />

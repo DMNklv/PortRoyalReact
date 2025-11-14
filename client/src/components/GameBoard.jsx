@@ -5,6 +5,7 @@ import { Deck } from "./Deck";
 import { Expeditions } from "./Expeditions";
 import { Persons } from "./Persons";
 import { Ships } from "./Ships";
+import { TaxIncreaseCard } from "./TaxIncreaseCard";
 import '../css/GameBoard.css'
 
 export function GameBoard() {
@@ -41,16 +42,5 @@ export function GameBoard() {
             )}
             </div>
         </>
-    )
-}
-
-function TaxIncreaseCard({ taxIncrease }) {
-    return (
-        <div className="taxIncreaseCard">
-            <img src={taxIncrease.cardUrl} alt={taxIncrease.name} className="taxIncreaseImg" />
-            <div className="cardDetails.show">
-                <p className="taxIncreaseDesc">{taxIncrease.desc}</p>
-            </div>
-        </div>
     )
 }
